@@ -1,0 +1,1247 @@
+
+<!DOCTYPE html>
+<script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+</script>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>منصة التسجيل</title>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<style>
+.toggle-theme,button{cursor:pointer;font-weight:700}body,html{height:100%;font-family:Tajawal,sans-serif;transition:background-color .5s,color .5s}body.dark{background-color:#121212;color:#fff}body.light{background-color:#f0f0f0;color:#000}#tsparticles{position:fixed;width:100%;height:100%;z-index:-1}.container{background-color:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);padding:40px;border-radius:18px;width:100%;max-width:420px;text-align:center;backdrop-filter:blur(12px);margin:auto;top:50%;transform:translateY(-50%);position:relative;box-shadow:0 12px 40px rgba(0,0,0,.3)}h2{font-size:24px;margin-bottom:24px}button,input{width:100%;padding:14px;margin:10px 0;font-size:15px}input{border-radius:10px;border:none;background:rgba(255,255,255,.15);color:inherit}input::placeholder{color:#ccc}button{border:none;border-radius:10px;transition:.3s}.btn-primary{background:linear-gradient(to right,#ff416c,#ff4b2b);color:#fff}.btn-google{background:#fff;color:#333;display:flex;align-items:center;justify-content:center}.btn-google img{height:20px;margin-left:10px}.error{color:#ffb3b3;font-size:14px;margin-top:10px}.toggle-theme{position:absolute;top:20px;left:20px;background:0 0;border:2px solid currentColor;padding:6px 12px;border-radius:20px}
+  </style>
+</head>
+<body class="dark">
+<div id="tsparticles"></div>
+<div class="container">
+<h2>تسجيل الدخول / إنشاء حساب</h2>
+<input id="email" placeholder="البريد الإلكتروني" type="email"/>
+<input id="password" placeholder="كلمة المرور" type="password"/>
+<input id="code" placeholder="كود التحقق" style="display:none;" type="text"/>
+<button class="btn-primary" onclick="login()">تسجيل الدخول</button>
+<button class="btn-primary" onclick="register()">إنشاء حساب</button>
+<button class="btn-primary" onclick="sendVerificationCode()">إرسال كود التحقق</button>
+<button class="btn-google" onclick="googleSignIn()">
+<img alt="Google Logo" src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"/>
+      تسجيل الدخول باستخدام Google
+    </button>
+<div class="error" id="error"></div>
+</div>
+<script>
+      document.addEventListener('contextmenu', event => event.preventDefault());
+const _0x1c4ec3=_0x5a9a;function _0x4b9f(){const _0x489834=['body','AIzaSyCS7KIb0nuOi1PM3cJv-k5zuVpXNS5KQm8','sendEmailVerification','circle','password','80LiDXFv','58760ZYntHJ','\x20تم\x20إنشاء\x20الحساب.\x20تم\x20إرسال\x20رابط\x20تحقق\x20إلى\x20بريدك.\x20يرجي\x20ابحث\x20في\x20الرساءل\x20غير\x20المرغوب\x20فيها\x20.','18501615viICIn','G-7F5JGXK7LF','999882574509','add','getElementById','dark','697122xPLjjy','user','value','#ffffff','7017462kqMsBx','textContent','message','20yneWer','currentUser','16539720FStTfb','email','1:999882574509:web:eb5a37b2b4ba38aa751424','remove','29INbVci','gamaffdiamond.firebasestorage.app','465444IgBJEo','signInWithEmailAndPassword','createUserWithEmailAndPassword','298VGRLzt','location','light','خطأ:\x20','auth','href','classList','then','initializeApp','emailVerified','error','https://www.youtube.com/','tsparticles','gamaffdiamond','28dKcorw','28xvnScA','catch'];_0x4b9f=function(){return _0x489834;};return _0x4b9f();}function _0x5a9a(_0x1e9875,_0x437183){const _0x4b9fb0=_0x4b9f();return _0x5a9a=function(_0x5a9a27,_0x301d2e){_0x5a9a27=_0x5a9a27-0x16e;let _0x4916c1=_0x4b9fb0[_0x5a9a27];return _0x4916c1;},_0x5a9a(_0x1e9875,_0x437183);}(function(_0x49dfad,_0x4f79c1){const _0x5349a9=_0x5a9a,_0x1759fe=_0x49dfad();while(!![]){try{const _0x56a8ea=-parseInt(_0x5349a9(0x177))/0x1*(-parseInt(_0x5349a9(0x17c))/0x2)+parseInt(_0x5349a9(0x19b))/0x3*(-parseInt(_0x5349a9(0x18b))/0x4)+parseInt(_0x5349a9(0x192))/0x5*(parseInt(_0x5349a9(0x179))/0x6)+parseInt(_0x5349a9(0x18a))/0x7*(-parseInt(_0x5349a9(0x193))/0x8)+-parseInt(_0x5349a9(0x16e))/0x9*(-parseInt(_0x5349a9(0x171))/0xa)+-parseInt(_0x5349a9(0x195))/0xb+parseInt(_0x5349a9(0x173))/0xc;if(_0x56a8ea===_0x4f79c1)break;else _0x1759fe['push'](_0x1759fe['shift']());}catch(_0x29e423){_0x1759fe['push'](_0x1759fe['shift']());}}}(_0x4b9f,0xce5e8));const firebaseConfig={'apiKey':_0x1c4ec3(0x18e),'authDomain':'gamaffdiamond.firebaseapp.com','projectId':_0x1c4ec3(0x189),'storageBucket':_0x1c4ec3(0x178),'messagingSenderId':_0x1c4ec3(0x197),'appId':_0x1c4ec3(0x175),'measurementId':_0x1c4ec3(0x196)};firebase[_0x1c4ec3(0x184)](firebaseConfig);const auth=firebase[_0x1c4ec3(0x180)]();function login(){const _0x109827=_0x1c4ec3,_0x1a70fa=document[_0x109827(0x199)]('email')[_0x109827(0x19d)],_0x2844fc=document[_0x109827(0x199)](_0x109827(0x191))[_0x109827(0x19d)],_0x1a9c91=document['getElementById'](_0x109827(0x186));auth[_0x109827(0x17a)](_0x1a70fa,_0x2844fc)[_0x109827(0x183)](_0x51d223=>{const _0x34de08=_0x109827,_0x660f9b=_0x51d223[_0x34de08(0x19c)];_0x660f9b[_0x34de08(0x185)]?window[_0x34de08(0x17d)]['href']=_0x34de08(0x187):_0x1a9c91[_0x34de08(0x16f)]='يرجى\x20التحقق\x20من\x20البريد\x20الإلكتروني\x20أولا\x20والتحقق\x20من\x20الرساءل\x20غير\x20المرغوب\x20فيها\x20spamً.';})[_0x109827(0x18c)](_0x3b8b7b=>{const _0x497fc8=_0x109827;_0x1a9c91[_0x497fc8(0x16f)]=_0x497fc8(0x17f)+_0x3b8b7b[_0x497fc8(0x170)];});}function register(){const _0x4baf3a=_0x1c4ec3,_0x10c0f7=document[_0x4baf3a(0x199)](_0x4baf3a(0x174))[_0x4baf3a(0x19d)],_0x50c708=document[_0x4baf3a(0x199)](_0x4baf3a(0x191))[_0x4baf3a(0x19d)],_0x2db13e=document[_0x4baf3a(0x199)]('error');auth[_0x4baf3a(0x17b)](_0x10c0f7,_0x50c708)[_0x4baf3a(0x183)](_0x290295=>{const _0x570f30=_0x4baf3a,_0x3cf2ab=_0x290295['user'];_0x3cf2ab[_0x570f30(0x18f)]()['then'](()=>{const _0x29ecc1=_0x570f30;_0x2db13e[_0x29ecc1(0x16f)]='\x20تم\x20إنشاء\x20الحساب.\x20تم\x20إرسال\x20رابط\x20تحقق\x20إلى\x20بريدك.\x20يرجي\x20ابحث\x20في\x20الرساءل\x20غير\x20المرغوب\x20فيها\x20';});})[_0x4baf3a(0x18c)](_0xd88c8b=>{const _0x56eeca=_0x4baf3a;_0x2db13e['textContent']=_0x56eeca(0x17f)+_0xd88c8b['message'];});}function sendVerificationCode(){const _0x36754d=_0x1c4ec3,_0x29eb53=auth[_0x36754d(0x172)],_0x2307d7=document[_0x36754d(0x199)](_0x36754d(0x186));_0x29eb53?_0x29eb53[_0x36754d(0x18f)]()[_0x36754d(0x183)](()=>{const _0x91ffb=_0x36754d;_0x2307d7['textContent']=_0x91ffb(0x194);})[_0x36754d(0x18c)](_0x2e1c32=>{_0x2307d7['textContent']='خطأ\x20أثناء\x20إرسال\x20التحقق:\x20'+_0x2e1c32['message'];}):_0x2307d7[_0x36754d(0x16f)]='يجب\x20تسجيل\x20الدخول\x20أولاً.';}function googleSignIn(){const _0x51aa20=_0x1c4ec3,_0x395dc7=new firebase['auth']['GoogleAuthProvider']();auth['signInWithPopup'](_0x395dc7)['then'](_0xb7d438=>{const _0x3be782=_0x5a9a;window['location'][_0x3be782(0x181)]='https://www.youtube.com/';})[_0x51aa20(0x18c)](_0x4a8e79=>{const _0x4c294a=_0x51aa20;document['getElementById'](_0x4c294a(0x186))['textContent']='خطأ:\x20'+_0x4a8e79[_0x4c294a(0x170)];});}function toggleTheme(){const _0x2ec3ba=_0x1c4ec3,_0x19ce51=document[_0x2ec3ba(0x18d)];_0x19ce51[_0x2ec3ba(0x182)]['contains'](_0x2ec3ba(0x19a))?(_0x19ce51[_0x2ec3ba(0x182)]['remove'](_0x2ec3ba(0x19a)),_0x19ce51['classList']['add'](_0x2ec3ba(0x17e))):(_0x19ce51['classList'][_0x2ec3ba(0x176)](_0x2ec3ba(0x17e)),_0x19ce51[_0x2ec3ba(0x182)][_0x2ec3ba(0x198)]('dark'));}tsParticles['load'](_0x1c4ec3(0x188),{'fullScreen':{'enable':![]},'background':{'color':{'value':'transparent'}},'particles':{'number':{'value':0x50,'density':{'enable':!![],'value_area':0x320}},'color':{'value':_0x1c4ec3(0x19e)},'shape':{'type':_0x1c4ec3(0x190)},'opacity':{'value':0.3},'size':{'value':0x3},'move':{'enable':!![],'speed':0x1}}});
+  </script>
+<div id="storeContent" style="display:none;"><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;!-- saved from url=(0043)file:///E:/GAMA%20X%20CHEAT/WEBSITE/FF.html --&gt;
+&lt;html lang=&quot;ar&quot; dir=&quot;rtl&quot;&gt;&lt;head&gt;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+        
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;شحن جواهر فري فاير&lt;/title&gt;
+    &lt;style&gt;
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --card-bg: #f5f5f5;
+            --button-bg: #2196F3; /* تغيير من الأصفر إلى الأزرق */
+            --button-hover: #1976D2;
+            --clan-button-bg: #2196F3;
+            --clan-button-hover: #1976D2;
+            --support-button-bg: #4CAF50;
+            --support-button-hover: #388E3C;
+            --highlight-color: #2196F3; /* تغيير من الأصفر إلى الأزرق */
+            --telegram-color: #0088cc;
+            --error-color: #f44336;
+            --success-color: #4CAF50;
+            --vodafone-red: #E40000;
+            --whatsapp-green: #25D366;
+        }
+
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #f1f1f1;
+            --card-bg: #1e1e1e;
+            --button-bg: #42A5F5; /* تغيير من الأصفر إلى الأزرق */
+            --button-hover: #1E88E5;
+            --clan-button-bg: #42A5F5;
+            --clan-button-hover: #1E88E5;
+            --support-button-bg: #2E7D32;
+            --support-button-hover: #1B5E20;
+            --highlight-color: #42A5F5; /* تغيير من الأصفر إلى الأزرق */
+            --error-color: #e53935;
+            --success-color: #43A047;
+            --vodafone-red: #FF3333;
+            --whatsapp-green: #128C7E;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px;
+            background-color: var(--bg-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            background-image: url('https://i.postimg.cc/fRjpkyTb/IMG.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            border: 2px solid var(--highlight-color);
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .highlight {
+            color: var(--highlight-color);
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .dark-mode-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--card-bg);
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-color);
+        }
+
+        .clan-button {
+            background-color: var(--clan-button-bg);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+
+        .support-button {
+            background-color: var(--support-button-bg);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+
+        .clan-button:hover {
+            background-color: var(--clan-button-hover);
+        }
+
+        .support-button:hover {
+            background-color: var(--support-button-hover);
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .main-title {
+            text-align: center;
+            margin: 15px 0 25px;
+            font-size: 22px;
+            color: var(--text-color);
+            background: var(--card-bg);
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .main-title span {
+            color: var(--highlight-color);
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(33, 150, 243, 0.2); /* تغيير اللون إلى الأزرق */
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            border-color: var(--highlight-color);
+        }
+
+        .card h2 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--button-bg);
+            margin: 5px 0;
+            text-align: center;
+        }
+
+        .method {
+            font-size: 12px;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .buy-button {
+            background-color: var(--button-bg);
+            color: white;
+            border: none;
+            padding: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .buy-button:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* صفحة تأكيد الدفع المحسنة */
+        .payment-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            display: none;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 1000;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .payment-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            border: 1px solid rgba(33, 150, 243, 0.3); /* تغيير اللون إلى الأزرق */
+        }
+
+        .payment-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--highlight-color);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        /* بطاقة فودافون كاش المميزة */
+        .vodafone-cash-box {
+            background: rgba(228, 0, 0, 0.1);
+            border: 2px dashed var(--vodafone-red);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vodafone-cash-box::before {
+            content: &quot;&quot;;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            background: var(--vodafone-red);
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+
+        .vodafone-number {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--vodafone-red);
+            direction: ltr;
+            display: inline-block;
+            background: var(--bg-color);
+            padding: 5px 15px;
+            border-radius: 30px;
+            margin: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .copy-btn {
+            background: var(--vodafone-red);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px 0;
+            transition: all 0.3s;
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .copy-btn:hover {
+            background: #c10000;
+            transform: translateY(-2px);
+        }
+
+        .payment-steps {
+            margin: 20px 0;
+            padding-right: 20px;
+        }
+
+        .payment-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .step-number {
+            background: var(--highlight-color);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .payment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: var(--text-color);
+            font-size: 14px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--highlight-color);
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2); /* تغيير اللون إلى الأزرق */
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 12px;
+            margin-top: 3px;
+            display: none;
+        }
+
+        .file-upload {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload-btn {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .file-upload-btn:hover {
+            border-color: var(--highlight-color);
+            background-color: rgba(33, 150, 243, 0.05); /* تغيير اللون إلى الأزرق */
+        }
+
+        .file-upload-input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-name {
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .submit-btn {
+            background-color: var(--telegram-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--button-hover);
+        }
+
+        .submit-btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .close-payment {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            z-index: 1001;
+        }
+
+        /* شاشة تأكيد الإرسال المحسنة */
+        .confirmation-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .confirmation-icon {
+            font-size: 60px;
+            color: var(--success-color);
+            margin-bottom: 20px;
+        }
+
+        .confirmation-screen h2 {
+            color: var(--success-color);
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .confirmation-screen p {
+            color: var(--text-color);
+            margin-bottom: 30px;
+            font-size: 16px;
+            max-width: 300px;
+        }
+
+        /* شاشة الكلان */
+        .clan-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .clan-screen h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .clan-screen p {
+            color: var(--text-color);
+            opacity: 0.8;
+            text-align: center;
+            max-width: 300px;
+        }
+
+        /* شاشة الدعم */
+        .support-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .support-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .support-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            border-bottom: 2px solid var(--highlight-color);
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .support-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .support-name {
+            font-weight: bold;
+        }
+
+        .support-number {
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .whatsapp-btn {
+            background-color: var(--whatsapp-green);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+
+        .whatsapp-icon {
+            width: 16px;
+            height: 16px;
+        }
+
+        .close-support {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-color);
+        }
+
+        .close-clan {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 480px) {
+            .payment-card {
+                padding: 15px;
+            }
+            
+            .form-group input, 
+            .form-group select, 
+            .form-group textarea {
+                padding: 10px;
+                font-size: 14px;
+            }
+            
+            .payment-title {
+                font-size: 20px;
+            }
+            
+            .submit-btn {
+                padding: 12px;
+                font-size: 15px;
+            }
+            
+            .vodafone-number {
+                font-size: 18px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            .clan-button,
+            .support-button {
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 700px;
+            }
+            
+            .cards {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .card h2 {
+                font-size: 18px;
+            }
+            
+            .price {
+                font-size: 22px;
+            }
+            
+            .main-title {
+                font-size: 26px;
+            }
+            
+            .logo-text {
+                font-size: 20px;
+            }
+        }
+    &lt;/style&gt;
+    &lt;link href=&quot;./شحن جواهر فري فاير_files/css2&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+&lt;body class=&quot;dark-mode&quot;&gt;
+    &lt;header&gt;
+        &lt;div class=&quot;logo-container&quot;&gt;
+            &lt;div class=&quot;logo&quot;&gt;&lt;/div&gt;
+            &lt;div class=&quot;logo-text&quot;&gt;&lt;span class=&quot;highlight&quot;&gt;فري فاير&lt;/span&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;controls&quot;&gt;
+            &lt;button class=&quot;dark-mode-toggle&quot; onclick=&quot;toggleDarkMode()&quot;&gt;
+                &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+                    &lt;path d=&quot;M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1-8.313-12.454z&quot;&gt;&lt;/path&gt;
+                &lt;/svg&gt;
+            &lt;/button&gt;
+            &lt;button class=&quot;support-button&quot; onclick=&quot;showSupportScreen()&quot;&gt;الدعم الفني&lt;/button&gt;
+            &lt;button class=&quot;clan-button&quot; onclick=&quot;showClanScreen()&quot;&gt;انضمام للكلان&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;h1 class=&quot;main-title&quot;&gt;شحن جواهر فري فاير &lt;span&gt;بأسعار مميزة&lt;/span&gt;&lt;/h1&gt;
+        
+        &lt;div class=&quot;cards&quot;&gt;
+            &lt;div class=&quot;card&quot; onclick=&quot;showPayment(&amp;#39;50 جوهرة&amp;#39;, &amp;#39;30 جنيه&amp;#39;)&quot;&gt;
+                &lt;h2&gt;50 جوهرة&lt;/h2&gt;
+                &lt;div class=&quot;price&quot;&gt;30 جنيه&lt;/div&gt;
+                &lt;div class=&quot;method&quot;&gt;الشحن: عبر الأيدي&lt;/div&gt;
+                &lt;button class=&quot;buy-button&quot;&gt;شراء الآن&lt;/button&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;card&quot; onclick=&quot;showPayment(&amp;#39;100 جوهرة&amp;#39;, &amp;#39;50 جنيه&amp;#39;)&quot;&gt;
+                &lt;h2&gt;100 جوهرة&lt;/h2&gt;
+                &lt;div class=&quot;price&quot;&gt;50 جنيه&lt;/div&gt;
+                &lt;div class=&quot;method&quot;&gt;الشحن: عبر الأيدي&lt;/div&gt;
+                &lt;button class=&quot;buy-button&quot;&gt;شراء الآن&lt;/button&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;card&quot; onclick=&quot;showPayment(&amp;#39;210 جوهرة&amp;#39;, &amp;#39;110 جنيه&amp;#39;)&quot;&gt;
+                &lt;h2&gt;210 جوهرة&lt;/h2&gt;
+                &lt;div class=&quot;price&quot;&gt;100 جنيه&lt;/div&gt;
+                &lt;div class=&quot;method&quot;&gt;الشحن: عبر الأيدي&lt;/div&gt;
+                &lt;button class=&quot;buy-button&quot;&gt;شراء الآن&lt;/button&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;card&quot; onclick=&quot;showPayment(&amp;#39;320 جوهرة&amp;#39;, &amp;#39;160 جنيه&amp;#39;)&quot;&gt;
+                &lt;h2&gt;320 جوهرة&lt;/h2&gt;
+                &lt;div class=&quot;price&quot;&gt;160 جنيه&lt;/div&gt;
+                &lt;div class=&quot;method&quot;&gt;الشحن: عبر الأيدي&lt;/div&gt;
+                &lt;button class=&quot;buy-button&quot;&gt;شراء الآن&lt;/button&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;card&quot; onclick=&quot;showPayment(&amp;#39;520 جوهرة&amp;#39;, &amp;#39;260 جنيه&amp;#39;)&quot;&gt;
+                &lt;h2&gt;520 جوهرة&lt;/h2&gt;
+                &lt;div class=&quot;price&quot;&gt;260 جنيه&lt;/div&gt;
+                &lt;div class=&quot;method&quot;&gt;الشحن: عبر الأيدي&lt;/div&gt;
+                &lt;button class=&quot;buy-button&quot;&gt;شراء الآن&lt;/button&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;card&quot; onclick=&quot;showPayment(&amp;#39;1060 جوهرة&amp;#39;, &amp;#39;520 جنيه&amp;#39;)&quot;&gt;
+                &lt;h2&gt;1060 جوهرة&lt;/h2&gt;
+                &lt;div class=&quot;price&quot;&gt;520 جنيه&lt;/div&gt;
+                &lt;div class=&quot;method&quot;&gt;الشحن: عبر الأيدي&lt;/div&gt;
+                &lt;button class=&quot;buy-button&quot;&gt;شراء الآن&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;card&quot; onclick=&quot;showPayment(&amp;#39;2200 جوهرة&amp;#39;, &amp;#39;1050 جنيه&amp;#39;)&quot;&gt;
+                &lt;h2&gt;2200 جوهرة&lt;/h2&gt;
+                &lt;div class=&quot;price&quot;&gt;1050 جنيه&lt;/div&gt;
+                &lt;div class=&quot;method&quot;&gt;الشحن: عبر الأيدي&lt;/div&gt;
+                &lt;button class=&quot;buy-button&quot;&gt;شراء الآن&lt;/button&gt;
+            &lt;/div&gt;
+            
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- صفحة تأكيد الدفع المحسنة --&gt;
+    &lt;div class=&quot;payment-screen&quot; id=&quot;paymentScreen&quot;&gt;
+        &lt;button class=&quot;close-payment&quot; onclick=&quot;hidePayment()&quot;&gt;✕&lt;/button&gt;
+        &lt;div class=&quot;payment-card&quot;&gt;
+            &lt;h2 class=&quot;payment-title&quot;&gt;إتمام عملية الشراء&lt;/h2&gt;
+            
+            &lt;div class=&quot;vodafone-cash-box&quot;&gt;
+                &lt;h3&gt;الدفع عبر فودافون كاش&lt;/h3&gt;
+                &lt;p&gt;قم بالتحويل إلى الرقم التالي:&lt;/p&gt;
+                &lt;div class=&quot;vodafone-number&quot; id=&quot;vodafoneNumber&quot;&gt;+201011907743&lt;/div&gt;
+                &lt;button class=&quot;copy-btn&quot; onclick=&quot;copyVodafoneNumber()&quot;&gt;انسخ الرقم&lt;/button&gt;
+                &lt;p style=&quot;margin-top: 10px;&quot;&gt;استخدمه لشحن عبر الأيدي&lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;payment-steps&quot;&gt;
+                &lt;div class=&quot;payment-step&quot;&gt;
+                    &lt;div class=&quot;step-number&quot;&gt;1&lt;/div&gt;
+                    &lt;div class=&quot;step-content&quot;&gt;
+                        &lt;strong&gt;قم بالتحويل&lt;/strong&gt;
+                        &lt;p&gt;استخدم الرقم المكتوب للتحويل قبل اتمام الدفع+&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;payment-step&quot;&gt;
+                    &lt;div class=&quot;step-number&quot;&gt;2&lt;/div&gt;
+                    &lt;div class=&quot;step-content&quot;&gt;
+                        &lt;strong&gt;أدخل بيانات التحويل&lt;/strong&gt;
+                        &lt;p&gt;املأ النموذج بالأسفل لتأكيد الطلب&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;payment-step&quot;&gt;
+                    &lt;div class=&quot;step-number&quot;&gt;3&lt;/div&gt;
+                    &lt;div class=&quot;step-content&quot;&gt;
+                        &lt;strong&gt;ارفق صورة التحويل&lt;/strong&gt;
+                        &lt;p&gt;لضمان معالجة طلبك بسرعة&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;form class=&quot;payment-form&quot; id=&quot;paymentForm&quot;&gt;
+                &lt;input type=&quot;hidden&quot; id=&quot;productNameInput&quot;&gt;
+                &lt;input type=&quot;hidden&quot; id=&quot;productPriceInput&quot;&gt;
+                
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;playerName&quot;&gt;اسم اللاعب في فري فاير:&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; id=&quot;playerName&quot; required=&quot;&quot;&gt;
+                    &lt;div class=&quot;error-message&quot; id=&quot;playerNameError&quot;&gt;يجب إدخال اسم اللاعب&lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;playerId&quot;&gt;الأيدي الخاص بك:&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; id=&quot;playerId&quot; required=&quot;&quot; minlength=&quot;8&quot; maxlength=&quot;13&quot; pattern=&quot;[0-9]+&quot;&gt;
+                    &lt;div class=&quot;error-message&quot; id=&quot;playerIdError&quot;&gt;يرجي التحقق من الأيدي&lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;phoneNumber&quot;&gt;رقم الهاتف: الخاص بك&lt;/label&gt;
+                    &lt;div style=&quot;display: flex; align-items: center;&quot;&gt;
+                      &lt;input type=&quot;tel&quot; id=&quot;phoneNumber&quot; required=&quot;&quot; pattern=&quot;^\+201[0-2,5]{1}[0-9]{8}$&quot; style=&quot;border-radius: 0 8px 8px 0; flex-grow: 1;&quot; placeholder=&quot;+201XXXXXXXXX&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;error-message&quot; id=&quot;phoneError&quot;&gt;يجب إدخال رقم هاتف صحيح (+201XXXXXXXXX)&lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;transactionNumber&quot;&gt;رقم التحويل اللذي حولت منه&lt;/label&gt;
+                    &lt;input type=&quot;text&quot; id=&quot;transactionNumber&quot; required=&quot;&quot;&gt;
+                    &lt;div class=&quot;error-message&quot; id=&quot;transactionError&quot;&gt;يجب إدخال رقم التحويل&lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;screenshot&quot;&gt;صورة إثبات التحويل (مطلوبة):&lt;/label&gt;
+                    &lt;div class=&quot;file-upload&quot;&gt;
+                        &lt;label class=&quot;file-upload-btn&quot;&gt;
+                            &lt;span&gt;اضغط لرفع صورة التحويل&lt;/span&gt;
+                            &lt;input type=&quot;file&quot; id=&quot;screenshot&quot; accept=&quot;image/*&quot; required=&quot;&quot; class=&quot;file-upload-input&quot; onchange=&quot;showFileName(this)&quot;&gt;
+                        &lt;/label&gt;
+                        &lt;div class=&quot;file-name&quot; id=&quot;fileName&quot;&gt;لم يتم اختيار صورة&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;error-message&quot; id=&quot;screenshotError&quot;&gt;يجب رفع صورة التحويل&lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;button type=&quot;submit&quot; class=&quot;submit-btn&quot; id=&quot;submitBtn&quot;&gt;
+                    &lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;
+                        &lt;path d=&quot;M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z&quot;&gt;&lt;/path&gt;
+                    &lt;/svg&gt;
+                    تأكيد الطلب وإرسال البيانات
+                &lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- شاشة تأكيد الإرسال المحسنة --&gt;
+    &lt;div class=&quot;confirmation-screen&quot; id=&quot;confirmationScreen&quot;&gt;
+        &lt;div class=&quot;confirmation-icon&quot;&gt;✓&lt;/div&gt;
+        &lt;h2&gt;تم تأكيد طلبك بنجاح!&lt;/h2&gt;
+        &lt;p&gt;تم إرسال طلبك الي المسؤلين عاده مايستغرق الأمر 1_60 دقيقه.&lt;/p&gt;
+        &lt;button class=&quot;buy-button&quot; onclick=&quot;hideConfirmation()&quot; style=&quot;width: 200px; margin-top: 20px;&quot;&gt;العوده الي المتجر&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- شاشة الدعم الفني --&gt;
+    &lt;div class=&quot;support-screen&quot; id=&quot;supportScreen&quot;&gt;
+        &lt;button class=&quot;close-support&quot; onclick=&quot;hideSupportScreen()&quot;&gt;✕&lt;/button&gt;
+        &lt;div class=&quot;support-card&quot;&gt;
+            &lt;h2 class=&quot;support-title&quot;&gt;الدعم الفني&lt;/h2&gt;
+            
+            &lt;div class=&quot;support-item&quot;&gt;
+                &lt;div&gt;
+                    &lt;div class=&quot;support-name&quot;&gt;الدعم الفني 1&lt;/div&gt;
+                    &lt;div class=&quot;support-number&quot;&gt;+201011907743&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button class=&quot;whatsapp-btn&quot; onclick=&quot;openWhatsApp(&amp;#39;201012345678&amp;#39;)&quot;&gt;
+                    &lt;svg class=&quot;whatsapp-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;
+                        &lt;path d=&quot;M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z&quot;&gt;&lt;/path&gt;
+                    &lt;/svg&gt;
+                    واتساب
+                &lt;/button&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;support-item&quot;&gt;
+                &lt;div&gt;
+                    &lt;div class=&quot;support-name&quot;&gt;الدعم الفني 2&lt;/div&gt;
+                    &lt;div class=&quot;support-number&quot;&gt;+201011907743&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button class=&quot;whatsapp-btn&quot; onclick=&quot;openWhatsApp(&amp;#39;201112345678&amp;#39;)&quot;&gt;
+                    &lt;svg class=&quot;whatsapp-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;
+                        &lt;path d=&quot;M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z&quot;&gt;&lt;/path&gt;
+                    &lt;/svg&gt;
+                    واتساب
+                &lt;/button&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;support-item&quot;&gt;
+                &lt;div&gt;
+                    &lt;div class=&quot;support-name&quot;&gt;الدعم الفني 3&lt;/div&gt;
+                    &lt;div class=&quot;support-number&quot;&gt;+201011907743&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button class=&quot;whatsapp-btn&quot; onclick=&quot;openWhatsApp(&amp;#39;201212345678&amp;#39;)&quot;&gt;
+                    &lt;svg class=&quot;whatsapp-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;
+                        &lt;path d=&quot;M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z&quot;&gt;&lt;/path&gt;
+                    &lt;/svg&gt;
+                    واتساب
+                &lt;/button&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;support-item&quot;&gt;
+                &lt;div&gt;
+                    &lt;div class=&quot;support-name&quot;&gt;الدعم الفني 4&lt;/div&gt;
+                    &lt;div class=&quot;support-number&quot;&gt;+201011907743&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button class=&quot;whatsapp-btn&quot; onclick=&quot;openWhatsApp(&amp;#39;201512345678&amp;#39;)&quot;&gt;
+                    &lt;svg class=&quot;whatsapp-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;
+                        &lt;path d=&quot;M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z&quot;&gt;&lt;/path&gt;
+                    &lt;/svg&gt;
+                    واتساب
+                &lt;/button&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;support-item&quot;&gt;
+                &lt;div&gt;
+                    &lt;div class=&quot;support-name&quot;&gt;الدعم الفني 5&lt;/div&gt;
+                    &lt;div class=&quot;support-number&quot;&gt;+201011907743&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button class=&quot;whatsapp-btn&quot; onclick=&quot;openWhatsApp(&amp;#39;201098765432&amp;#39;)&quot;&gt;
+                    &lt;svg class=&quot;whatsapp-icon&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;
+                        &lt;path d=&quot;M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z&quot;&gt;&lt;/path&gt;
+                    &lt;/svg&gt;
+                    واتساب
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- شاشة الكلان --&gt;
+    &lt;div class=&quot;clan-screen&quot; id=&quot;clanScreen&quot;&gt;
+        &lt;button class=&quot;close-clan&quot; onclick=&quot;hideClanScreen()&quot;&gt;✕&lt;/button&gt;
+        &lt;h2&gt;انضمام للكلان&lt;/h2&gt;
+        &lt;p&gt;الصفحه غير موجوده حاليا&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // Telegram Bot Token
+        const BOT_TOKEN = '7792932602:AAHiuGDCq7swS_7NQGN_ixkyDH-89mZfWmA';
+        // قائمة بآيدي المشرفين (يمكنك إضافة حتى 5)
+        const ADMIN_CHAT_IDS = [
+            '5895171952', // آيدي حسابك
+            // يمكنك إضافة آيدي 4 مشرفين آخرين هنا
+            // '5895171952',
+            // 'ADMIN3_CHAT_ID',
+            // 'ADMIN4_CHAT_ID',
+            // 'ADMIN5_CHAT_ID'
+        ];
+        
+        let currentProduct = '';
+        let currentPrice = '';
+        
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+        
+        function showPayment(product, price) {
+            currentProduct = product;
+            currentPrice = price;
+            document.getElementById('productNameInput').value = product;
+            document.getElementById('productPriceInput').value = price;
+            document.getElementById('paymentScreen').style.display = 'flex';
+            resetForm();
+        }
+        
+        function hidePayment() {
+            document.getElementById('paymentScreen').style.display = 'none';
+        }
+        
+        function showConfirmation() {
+            document.getElementById('confirmationScreen').style.display = 'flex';
+        }
+        
+        function hideConfirmation() {
+            document.getElementById('confirmationScreen').style.display = 'none';
+            hidePayment();
+        }
+        
+        function showSupportScreen() {
+            document.getElementById('supportScreen').style.display = 'flex';
+        }
+        
+        function hideSupportScreen() {
+            document.getElementById('supportScreen').style.display = 'none';
+        }
+        
+        function showClanScreen() {
+            document.getElementById('clanScreen').style.display = 'flex';
+        }
+        
+        function hideClanScreen() {
+            document.getElementById('clanScreen').style.display = 'none';
+        }
+        
+        function copyVodafoneNumber() {
+            const number = document.getElementById('vodafoneNumber').textContent;
+            navigator.clipboard.writeText(number).then(() =&gt; {
+                alert('تم نسخ الرقم: ' + number);
+            });
+        }
+        
+        function openWhatsApp(phone) {
+            window.open(`https://wa.me/${phone}`, '_blank');
+        }
+        
+        function showFileName(input) {
+            const fileNameDisplay = document.getElementById('fileName');
+            if (input.files &amp;&amp; input.files[0]) {
+                fileNameDisplay.textContent = input.files[0].name;
+                document.getElementById('screenshotError').style.display = 'none';
+            } else {
+                fileNameDisplay.textContent = 'لم يتم اختيار صورة';
+            }
+        }
+        
+        function resetForm() {
+            document.getElementById('paymentForm').reset();
+            document.getElementById('fileName').textContent = '';
+            document.querySelectorAll('.error-message').forEach(el =&gt; {
+                el.style.display = 'none';
+            });
+        }
+        
+        // التحقق من صحة النموذج قبل الإرسال
+        function validateForm() {
+            let isValid = true;
+            
+            // التحقق من اسم اللاعب
+            const playerName = document.getElementById('playerName').value.trim();
+            if (playerName === '') {
+                document.getElementById('playerNameError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('playerNameError').style.display = 'none';
+            }
+            
+            // التحقق من الأيدي
+            const playerId = document.getElementById('playerId').value.trim();
+            if (playerId.length &lt; 8 || playerId.length &gt; 13 || !/^\d+$/.test(playerId)) {
+                document.getElementById('playerIdError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('playerIdError').style.display = 'none';
+            }
+            
+            // التحقق من رقم الهاتف (إجباري الآن)
+          const phoneNumber = document.getElementById('phoneNumber').value.trim();
+if (!/^\+201[0-2,5][0-9]{8}$/.test(phoneNumber)) {
+    document.getElementById('phoneError').style.display = 'block';
+    isValid = false;
+} else {
+    document.getElementById('phoneError').style.display = 'none';
+}
+            
+            // التحقق من رقم التحويل
+            const transactionNumber = document.getElementById('transactionNumber').value.trim();
+            if (transactionNumber === '') {
+                document.getElementById('transactionError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('transactionError').style.display = 'none';
+            }
+            
+            // التحقق من صورة التحويل
+            const screenshot = document.getElementById('screenshot').files[0];
+            if (!screenshot) {
+                document.getElementById('screenshotError').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('screenshotError').style.display = 'none';
+            }
+            
+            return isValid;
+        }
+        
+        // إرسال البيانات إلى Telegram
+        document.getElementById('paymentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) return;
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;&lt;path d=&quot;M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0020 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 004 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z&quot;/&gt;&lt;/svg&gt; جاري الإرسال...';
+
+            const orderData = {
+                product: currentProduct,
+                price: currentPrice,
+                playerName: document.getElementById('playerName').value.trim(),
+                playerId: document.getElementById('playerId').value.trim(),
+                phoneNumber: '+20' + document.getElementById('phoneNumber').value.trim(),
+                transactionNumber: document.getElementById('transactionNumber').value.trim(),
+                screenshot: document.getElementById('screenshot').files[0]
+            };
+
+            let message = `🎮 *طلب شحن جواهر جديد* 🎮\n\n`;
+            message += `📦 *المنتج:* ${orderData.product}\n`;
+            message += `💰 *السعر:* ${orderData.price}\n\n`;
+            message += `👤 *اسم اللاعب:* ${orderData.playerName}\n`;
+            message += `🆔 *الأيدي:* ${orderData.playerId}\n`;
+            message += `📱 * رقم الهاتف: الخاص البشاري* ${orderData.phoneNumber}\n\n`;
+            message += `💳 *طريقة الدفع:* فودافون كاش\n`;
+            message += `🔢 *رقم اللذي تم التحويل عبره* ${orderData.transactionNumber}\n\n`;
+            message += `📱 *+رقم فودافون كاش:* 201011907743\n\n`;
+            message += `🕒 *وقت الطلب:* ${new Date().toLocaleString('ar-EG')}`;
+
+            try {
+                // إرسال الرسالة النصية لكل المشرفين
+                const textPromises = ADMIN_CHAT_IDS.map(chatId =&gt; {
+                    return fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: message,
+                            parse_mode: 'Markdown'
+                        })
+                    });
+                });
+                
+                await Promise.all(textPromises);
+                
+                // إذا كان هناك صورة، إرسالها بشكل منفصل
+                if (orderData.screenshot) {
+                    const formData = new FormData();
+                    formData.append('chat_id', ADMIN_CHAT_IDS[0]); // إرسال الصورة للمشرف الأول فقط
+                    formData.append('photo', orderData.screenshot);
+                    formData.append('caption', 'صورة إثبات الدفع للطلب أعلاه');
+                    
+                    await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {
+                        method: 'POST',
+                        body: formData
+                    });
+                }
+                
+                showConfirmation();
+            } catch (error) {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء إرسال البيانات، يرجى المحاولة مرة أخرى');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;&lt;path d=&quot;M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z&quot;/&gt;&lt;/svg&gt; تأكيد الطلب وإرسال البيانات';
+            }
+        });
+
+        // جعل البطاقات قابلة للنقر بالكامل
+        document.querySelectorAll('.card').forEach(card =&gt; {
+            card.querySelector('.buy-button').addEventListener('click', function(e) {
+                e.stopPropagation();
+                const product = card.querySelector('h2').textContent;
+                const price = card.querySelector('.price').textContent;
+                showPayment(product, price);
+            });
+        });
+        
+        // تحميل وضع العرض المفضل من الذاكرة المحلية
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+    &lt;/script&gt;
+
+&lt;/body&gt;&lt;/html&gt;" style="width:100%;height:100vh;border:none;"></iframe></div><script>
+function showStorePage() {
+  document.querySelector('.container').style.display = 'none';
+  document.getElementById('storeContent').style.display = 'block';
+}
+
+  document.addEventListener('contextmenu', event => event.preventDefault());
+
+// Modify login and googleSignIn functions to call showStorePage on success
+(function(_0x209dd2,_0x4d4c3b){const _0x51bac4=_0x284c,_0x38ed06=_0x209dd2();while(!![]){try{const _0x17847e=parseInt(_0x51bac4(0x1cc))/0x1*(parseInt(_0x51bac4(0x1cd))/0x2)+-parseInt(_0x51bac4(0x1c8))/0x3+parseInt(_0x51bac4(0x1c6))/0x4+parseInt(_0x51bac4(0x1ca))/0x5+parseInt(_0x51bac4(0x1ce))/0x6+parseInt(_0x51bac4(0x1bc))/0x7+-parseInt(_0x51bac4(0x1bf))/0x8;if(_0x17847e===_0x4d4c3b)break;else _0x38ed06['push'](_0x38ed06['shift']());}catch(_0x279f87){_0x38ed06['push'](_0x38ed06['shift']());}}}(_0x5210,0x37054));function login(){const _0xc6db1f=_0x284c,_0x3410df=document[_0xc6db1f(0x1c4)](_0xc6db1f(0x1c1))[_0xc6db1f(0x1c0)],_0x5542c0=document[_0xc6db1f(0x1c4)]('password')[_0xc6db1f(0x1c0)],_0x3f01bf=document[_0xc6db1f(0x1c4)](_0xc6db1f(0x1bd));auth[_0xc6db1f(0x1be)](_0x3410df,_0x5542c0)[_0xc6db1f(0x1c2)](_0x49c8b0=>{const _0xcc0d6b=_0xc6db1f,_0x439f04=_0x49c8b0['user'];_0x439f04[_0xcc0d6b(0x1c5)]?showStorePage():_0x3f01bf[_0xcc0d6b(0x1cb)]='يرجى\x20التحقق\x20من\x20البريد\x20الإلكتروني\x20أولاً.';})['catch'](_0x1cfd3a=>{const _0x5cfc41=_0xc6db1f;_0x3f01bf[_0x5cfc41(0x1cb)]=_0x5cfc41(0x1c7)+_0x1cfd3a[_0x5cfc41(0x1c9)];});}function googleSignIn(){const _0x303d4a=_0x284c,_0x5807c3=new firebase[(_0x303d4a(0x1c3))][(_0x303d4a(0x1bb))]();auth[_0x303d4a(0x1cf)](_0x5807c3)['then'](_0x139082=>{showStorePage();})['catch'](_0x3eeec2=>{const _0x57363a=_0x303d4a;document[_0x57363a(0x1c4)](_0x57363a(0x1bd))[_0x57363a(0x1cb)]=_0x57363a(0x1c7)+_0x3eeec2[_0x57363a(0x1c9)];});}function _0x284c(_0x3839fa,_0x1af4fe){const _0x521086=_0x5210();return _0x284c=function(_0x284c9e,_0x29b4f9){_0x284c9e=_0x284c9e-0x1bb;let _0x4a9d5d=_0x521086[_0x284c9e];return _0x4a9d5d;},_0x284c(_0x3839fa,_0x1af4fe);}function _0x5210(){const _0x481596=['getElementById','emailVerified','250668jOvOwp','خطأ:\x20','1222257OWxTLZ','message','595810WuxoTV','textContent','397vsLpRo','1856YDesdr','212400NapXok','signInWithPopup','GoogleAuthProvider','2379874lfgtnj','error','signInWithEmailAndPassword','2342752pUmues','value','email','then','auth'];_0x5210=function(){return _0x481596;};return _0x5210();}
+</script></body>
+</html>
