@@ -1,272 +1,111 @@
-
-
 <!DOCTYPE html>
-<script>
-  document.addEventListener('contextmenu', event => event.preventDefault());
-</script>
-<body oncopy="return false" oncut="return false" onpaste="return false">
+<html lang="ar" dir="rtl">
+<head>
 
-<html lang="ar" dir="rtl"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شحن جواهر فري فاير</title>
-    <style>
-      body,header{background-color:var(--bg-color)}.clan-screen p,.confirmation-screen p{max-width:300px;color:var(--text-color)}:root{--bg-color:#ffffff;--text-color:#333333;--card-bg:#f5f5f5;--button-bg:#2196F3;--button-hover:#1976D2;--clan-button-bg:#2196F3;--clan-button-hover:#1976D2;--support-button-bg:#4CAF50;--support-button-hover:#388E3C;--highlight-color:#2196F3;--telegram-color:#0088cc;--error-color:#f44336;--success-color:#4CAF50;--vodafone-red:#E40000;--whatsapp-green:#25D366}.dark-mode{--bg-color:#121212;--text-color:#f1f1f1;--card-bg:#1e1e1e;--button-bg:#42A5F5;--button-hover:#1E88E5;--clan-button-bg:#42A5F5;--clan-button-hover:#1E88E5;--support-button-bg:#2E7D32;--support-button-hover:#1B5E20;--highlight-color:#42A5F5;--error-color:#e53935;--success-color:#43A047;--vodafone-red:#FF3333;--whatsapp-green:#128C7E}body{font-family:Tajawal,sans-serif;color:var(--text-color);margin:0;padding:0;transition:.3s}header{display:flex;justify-content:space-between;align-items:center;padding:15px 10px;box-shadow:0 2px 10px rgba(0,0,0,.1);position:sticky;top:0;z-index:100}.logo-container,.logo-text{align-items:center;display:flex}.logo-container{gap:10px}.logo{width:40px;height:40px;background-image:url('https://i.postimg.cc/fRjpkyTb/IMG.jpg');background-size:cover;background-position:center;border-radius:8px;border:2px solid var(--highlight-color)}.logo-text{font-size:18px;font-weight:700;gap:5px}.highlight,.main-title span{color:var(--highlight-color);font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,.1)}.controls{display:flex;gap:10px}.dark-mode-toggle{background:0 0;border:none;cursor:pointer;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background-color:var(--card-bg);transition:.3s}.clan-button,.support-button{color:#fff;padding:8px 15px;font-size:14px;transition:background-color .3s;white-space:nowrap;cursor:pointer;font-weight:700}.dark-mode-toggle svg{width:24px;height:24px;fill:var(--text-color)}.clan-button{background-color:var(--clan-button-bg);border:none;border-radius:20px}.support-button{background-color:var(--support-button-bg);border:none;border-radius:20px}.card h2,.main-title{color:var(--text-color);text-align:center}.card,.main-title{border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,.1)}.clan-button:hover{background-color:var(--clan-button-hover)}.support-button:hover{background-color:var(--support-button-hover)}.container{max-width:100%;margin:0 auto;padding:15px}.main-title{margin:15px 0 25px;font-size:22px;background:var(--card-bg);padding:12px}.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:15px}.card{background-color:var(--card-bg);padding:15px;transition:.3s;display:flex;flex-direction:column;border:1px solid rgba(33,150,243,.2);cursor:pointer}.card:hover{transform:translateY(-5px);box-shadow:0 6px 12px rgba(0,0,0,.15);border-color:var(--highlight-color)}.card h2{margin:0 0 10px;font-size:16px}.price{font-size:18px;font-weight:700;color:var(--button-bg);margin:5px 0;text-align:center}.method{font-size:12px;color:var(--text-color);opacity:.8;margin-bottom:15px;text-align:center}.buy-button{background-color:var(--button-bg);color:#fff;border:none;padding:8px 0;border-radius:8px;cursor:pointer;width:100%;font-size:14px;font-weight:700;transition:background-color .3s;margin-top:auto;box-shadow:0 2px 4px rgba(0,0,0,.1)}.buy-button:hover,.submit-btn:hover{background-color:var(--button-hover)}.payment-screen{position:fixed;top:0;left:0;width:100%;height:100%;background-color:var(--bg-color);display:none;flex-direction:column;justify-content:flex-start;align-items:center;z-index:1000;padding:15px;box-sizing:border-box;overflow-y:auto}.file-upload,.vodafone-cash-box{position:relative;overflow:hidden}.payment-card{background-color:var(--card-bg);border-radius:15px;padding:20px;width:100%;max-width:500px;box-shadow:0 6px 15px rgba(0,0,0,.1);margin-top:20px;border:1px solid rgba(33,150,243,.3)}.payment-title,.support-title{font-size:22px;margin-bottom:20px;color:var(--text-color);border-bottom:2px solid var(--highlight-color);padding-bottom:10px;text-align:center}.vodafone-cash-box{background:rgba(228,0,0,.1);border:2px dashed var(--vodafone-red);border-radius:10px;padding:15px;margin:15px 0;text-align:center}.vodafone-cash-box::before{content:"";position:absolute;top:-10px;right:-10px;width:30px;height:30px;background:var(--vodafone-red);transform:rotate(45deg);z-index:1}.vodafone-number{font-size:22px;font-weight:700;color:var(--vodafone-red);direction:ltr;display:inline-block;background:var(--bg-color);padding:5px 15px;border-radius:30px;margin:10px 0;box-shadow:0 2px 5px rgba(0,0,0,.1)}.copy-btn,.submit-btn{border:none;cursor:pointer}.copy-btn{background:var(--vodafone-red);color:#fff;padding:8px 15px;border-radius:20px;font-size:14px;margin:0 auto;transition:.3s;display:block;width:fit-content}.copy-btn:hover{background:#c10000;transform:translateY(-2px)}.payment-steps{margin:20px 0;padding-right:20px}.payment-step{display:flex;align-items:flex-start;margin-bottom:15px;position:relative}.step-number{background:var(--highlight-color);color:#fff;width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-left:10px;flex-shrink:0}.step-content{flex-grow:1}.payment-form{display:flex;flex-direction:column;gap:15px}.form-group{display:flex;flex-direction:column;gap:5px}.form-group label{font-weight:700;color:var(--text-color);font-size:14px}.form-group input,.form-group select,.form-group textarea{padding:12px;border-radius:8px;border:1px solid #ddd;background-color:var(--bg-color);color:var(--text-color);font-size:16px;width:100%;box-sizing:border-box}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:0;border-color:var(--highlight-color);box-shadow:0 0 0 2px rgba(33,150,243,.2)}.error-message{color:var(--error-color);font-size:12px;margin-top:3px;display:none}.file-upload{display:inline-block;width:100%}.file-upload-btn{border:2px dashed #ddd;border-radius:8px;padding:20px;text-align:center;cursor:pointer;transition:.3s;width:100%}.file-upload-btn:hover{border-color:var(--highlight-color);background-color:rgba(33,150,243,.05)}.file-upload-input{position:absolute;left:0;top:0;opacity:0;width:100%;height:100%;cursor:pointer}.file-name{margin-top:10px;font-size:14px;color:var(--text-color);text-align:center}.submit-btn{background-color:var(--telegram-color);color:#fff;padding:15px;border-radius:8px;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px;transition:background-color .3s;width:100%}.submit-btn:disabled{background-color:#ccc;cursor:not-allowed}.close-payment{position:absolute;top:15px;right:15px;font-size:24px;cursor:pointer;background:0 0;border:none;color:var(--text-color);z-index:1001}.clan-screen,.confirmation-screen,.support-screen{position:fixed;top:0;left:0;width:100%;height:100%;background-color:var(--bg-color);display:none;z-index:1000;box-sizing:border-box;padding:20px}.confirmation-screen{flex-direction:column;justify-content:center;align-items:center;text-align:center}.confirmation-icon{font-size:60px;color:var(--success-color);margin-bottom:20px}.confirmation-screen h2{color:var(--success-color);margin-bottom:15px;font-size:24px}.confirmation-screen p{margin-bottom:30px;font-size:16px}.clan-screen,.support-screen{flex-direction:column;justify-content:center;align-items:center}.clan-screen h2{font-size:24px;margin-bottom:20px;color:var(--text-color);text-align:center}.clan-screen p{opacity:.8;text-align:center}.support-card{background-color:var(--card-bg);border-radius:15px;padding:20px;width:90%;max-width:500px;box-shadow:0 6px 15px rgba(0,0,0,.1)}.support-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.1)}.support-name{font-weight:700}.support-number{direction:ltr;display:inline-block}.whatsapp-btn{background-color:var(--whatsapp-green);color:#fff;border:none;padding:5px 10px;border-radius:15px;cursor:pointer;font-size:12px;display:flex;align-items:center;gap:5px;transition:.3s}.whatsapp-btn:hover{background-color:#128c7e}.whatsapp-icon{width:16px;height:16px}.close-clan,.close-support{position:absolute;top:15px;right:15px;font-size:24px;cursor:pointer;background:0 0;border:none;color:var(--text-color)}@media (max-width:480px){.payment-card{padding:15px}.form-group input,.form-group select,.form-group textarea{padding:10px;font-size:14px}.payment-title{font-size:20px}.submit-btn{padding:12px;font-size:15px}.vodafone-number{font-size:18px}.controls{gap:5px}.clan-button,.support-button{padding:8px 10px;font-size:12px}}@media (min-width:768px){.container{max-width:700px}.cards{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}.card h2{font-size:18px}.price{font-size:22px}.main-title{font-size:26px}.logo-text{font-size:20px}}
-    </style>
-    <link href="./شحن جواهر فري فاير_files/css2" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>موقع الألعاب المجانية BY GAMA X CHEAT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      color: #00ffcc;
+    }
+    .games-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 20px;
+    }
+    .game-card {
+      background-color: #262626;
+      border-radius: 15px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .game-card:hover {
+      transform: scale(1.05);
+    }
+    .game-img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .game-title {
+      font-size: 20px;
+      margin: 15px 0;
+      color: #ffffff;
+    }
+    .play-button {
+      background-color: #00ffcc;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .play-button:hover {
+      background-color: #00e6b8;
+    }
+    footer {
+      background-color: #1f1f1f;
+      text-align: center;
+      padding: 15px;
+      color: #888;
+    }
+  </style>
 </head>
-<body class="dark-mode">
-    <header>
-        <div class="logo-container">
-            <div class="logo"></div>
-            <div class="logo-text"><span class="highlight">فري فاير</span></div>
-        </div>
-        <div class="controls">
-            <button class="dark-mode-toggle" onclick="toggleDarkMode()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1-8.313-12.454z"></path>
-                </svg>
-            </button>
-            <button class="support-button" onclick="showSupportScreen()">الدعم الفني</button>
-            <button class="clan-button" onclick="showClanScreen()">انضمام للكلان</button>
-        </div>
-    </header>
+<body>
 
-    <div class="container">
-        <h1 class="main-title">شحن جواهر فري فاير <span>بأسعار مميزة</span></h1>
-        
-        <div class="cards">
-            <div class="card" onclick="showPayment(&#39;50 جوهرة&#39;, &#39;30 جنيه&#39;)">
-                <h2>50 جوهرة</h2>
-                <div class="price">30 جنيه</div>
-                <div class="method">الشحن: عبر الأيدي</div>
-                <button class="buy-button">شراء الآن</button>
-            </div>
-            
-            <div class="card" onclick="showPayment(&#39;100 جوهرة&#39;, &#39;50 جنيه&#39;)">
-                <h2>100 جوهرة</h2>
-                <div class="price">50 جنيه</div>
-                <div class="method">الشحن: عبر الأيدي</div>
-                <button class="buy-button">شراء الآن</button>
-            </div>
-            
-            <div class="card" onclick="showPayment(&#39;210 جوهرة&#39;, &#39;110 جنيه&#39;)">
-                <h2>210 جوهرة</h2>
-                <div class="price">100 جنيه</div>
-                <div class="method">الشحن: عبر الأيدي</div>
-                <button class="buy-button">شراء الآن</button>
-            </div>
-            
-            <div class="card" onclick="showPayment(&#39;320 جوهرة&#39;, &#39;160 جنيه&#39;)">
-                <h2>320 جوهرة</h2>
-                <div class="price">160 جنيه</div>
-                <div class="method">الشحن: عبر الأيدي</div>
-                <button class="buy-button">شراء الآن</button>
-            </div>
-            
-            <div class="card" onclick="showPayment(&#39;520 جوهرة&#39;, &#39;260 جنيه&#39;)">
-                <h2>520 جوهرة</h2>
-                <div class="price">260 جنيه</div>
-                <div class="method">الشحن: عبر الأيدي</div>
-                <button class="buy-button">شراء الآن</button>
-            </div>
-            
-            <div class="card" onclick="showPayment(&#39;1060 جوهرة&#39;, &#39;520 جنيه&#39;)">
-                <h2>1060 جوهرة</h2>
-                <div class="price">520 جنيه</div>
-                <div class="method">الشحن: عبر الأيدي</div>
-                <button class="buy-button">شراء الآن</button>
-            </div>
-            <div class="card" onclick="showPayment(&#39;2200 جوهرة&#39;, &#39;1050 جنيه&#39;)">
-                <h2>2200 جوهرة</h2>
-                <div class="price">1050 جنيه</div>
-                <div class="method">الشحن: عبر الأيدي</div>
-                <button class="buy-button">شراء الآن</button>
-            </div>
-            
-        </div>
+  <header>
+    🎮 موقع الألعاب المجانية
+  </header>
+
+  <div class="games-container">
+
+    <div class="game-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Garena_Free_Fire_logo.png" alt="Free Fire" class="game-img">
+      <div class="game-title">Free Fire</div>
+      <a href="https://ff.garena.com/" target="_blank">
+        <button class="play-button">العب الآن</button>
+      </a>
     </div>
 
-    <!-- صفحة تأكيد الدفع المحسنة -->
-    <div class="payment-screen" id="paymentScreen">
-        <button class="close-payment" onclick="hidePayment()">✕</button>
-        <div class="payment-card">
-            <h2 class="payment-title">إتمام عملية الشراء</h2>
-            
-            <div class="vodafone-cash-box">
-                <h3>الدفع عبر فودافون كاش</h3>
-                <p>قم بالتحويل إلى الرقم التالي:</p>
-                <div class="vodafone-number" id="vodafoneNumber">+201011907743</div>
-                <button class="copy-btn" onclick="copyVodafoneNumber()">انسخ الرقم</button>
-                <p style="margin-top: 10px;">استخدمه لشحن عبر الأيدي</p>
-            </div>
-
-            <div class="payment-steps">
-                <div class="payment-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <strong>قم بالتحويل</strong>
-                        <p>استخدم الرقم المكتوب للتحويل قبل اتمام الدفع+</p>
-                    </div>
-                </div>
-                <div class="payment-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <strong>أدخل بيانات التحويل</strong>
-                        <p>املأ النموذج بالأسفل لتأكيد الطلب</p>
-                    </div>
-                </div>
-                <div class="payment-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <strong>ارفق صورة التحويل</strong>
-                        <p>لضمان معالجة طلبك بسرعة</p>
-                    </div>
-                </div>
-            </div>
-
-            <form class="payment-form" id="paymentForm">
-                <input type="hidden" id="productNameInput">
-                <input type="hidden" id="productPriceInput">
-                
-                <div class="form-group">
-                    <label for="playerName">اسم اللاعب في فري فاير:</label>
-                    <input type="text" id="playerName" required="">
-                    <div class="error-message" id="playerNameError">يجب إدخال اسم اللاعب</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="playerId">الأيدي الخاص بك:</label>
-                    <input type="text" id="playerId" required="" minlength="8" maxlength="13" pattern="[0-9]+">
-                    <div class="error-message" id="playerIdError">يرجي التحقق من الأيدي</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phoneNumber">رقم الهاتف: الخاص بك</label>
-                    <div style="display: flex; align-items: center;">
-                      <input type="tel" id="phoneNumber" required="" pattern="^\+201[0-2,5]{1}[0-9]{8}$" style="border-radius: 0 8px 8px 0; flex-grow: 1;" placeholder="+201XXXXXXXXX">
-                    </div>
-                    <div class="error-message" id="phoneError">يجب إدخال رقم هاتف صحيح (+201XXXXXXXXX)</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="transactionNumber">رقم التحويل اللذي حولت منه</label>
-                    <input type="text" id="transactionNumber" required="">
-                    <div class="error-message" id="transactionError">يجب إدخال رقم التحويل</div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="screenshot">صورة إثبات التحويل (مطلوبة):</label>
-                    <div class="file-upload">
-                        <label class="file-upload-btn">
-                            <span>اضغط لرفع صورة التحويل</span>
-                            <input type="file" id="screenshot" accept="image/*" required="" class="file-upload-input" onchange="showFileName(this)">
-                        </label>
-                        <div class="file-name" id="fileName">لم يتم اختيار صورة</div>
-                    </div>
-                    <div class="error-message" id="screenshotError">يجب رفع صورة التحويل</div>
-                </div>
-                
-                <button type="submit" class="submit-btn" id="submitBtn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"></path>
-                    </svg>
-                    تأكيد الطلب وإرسال البيانات
-                </button>
-            </form>
-        </div>
+    <div class="game-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/8/8e/PUBG_Mobile_logo.png" alt="PUBG" class="game-img">
+      <div class="game-title">PUBG Mobile</div>
+      <a href="https://www.pubgmobile.com/" target="_blank">
+        <button class="play-button">العب الآن</button>
+      </a>
     </div>
 
-    <!-- شاشة تأكيد الإرسال المحسنة -->
-    <div class="confirmation-screen" id="confirmationScreen">
-        <div class="confirmation-icon">✓</div>
-        <h2>تم تأكيد طلبك بنجاح!</h2>
-        <p>تم إرسال طلبك الي المسؤلين عاده مايستغرق الأمر 1_60 دقيقه.</p>
-        <button class="buy-button" onclick="hideConfirmation()" style="width: 200px; margin-top: 20px;">العوده الي المتجر</button>
+    <div class="game-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_Logo_2022.svg" alt="Roblox" class="game-img">
+      <div class="game-title">Roblox</div>
+      <a href="https://www.roblox.com/" target="_blank">
+        <button class="play-button">العب الآن</button>
+      </a>
     </div>
 
-    <!-- شاشة الدعم الفني -->
-    <div class="support-screen" id="supportScreen">
-        <button class="close-support" onclick="hideSupportScreen()">✕</button>
-        <div class="support-card">
-            <h2 class="support-title">الدعم الفني</h2>
-            
-            <div class="support-item">
-                <div>
-                    <div class="support-name">الدعم الفني 1</div>
-                    <div class="support-number">+201011907743</div>
-                </div>
-            <button class="whatsapp-btn" onclick="openWhatsApp(201011907743)">
-                    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
-                    </svg>
-                    واتساب
-                </button>
-            </div>
-            
-            <div class="support-item">
-                <div>
-                    <div class="support-name">الدعم الفني 2</div>
-                    <div class="support-number">+201011907743</div>
-                </div>
-                <button class="whatsapp-btn" onclick="openWhatsApp(201011907743)">
-                    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
-                    </svg>
-                    واتساب
-                </button>
-            </div>
-            
-            <div class="support-item">
-                <div>
-                    <div class="support-name">الدعم الفني 3</div>
-                    <div class="support-number">+201011907743</div>
-                </div>
-                <button class="whatsapp-btn" onclick="openWhatsApp(201011907743)">
-                    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
-                    </svg>
-                    واتساب
-                </button>
-            </div>
-            
-            <div class="support-item">
-                <div>
-                    <div class="support-name">الدعم الفني 4</div>
-                    <div class="support-number">+201011907743</div>
-                </div>
-                   <button class="whatsapp-btn" onclick="openWhatsApp(201011907743)">
-                    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
-                    </svg>
-                    واتساب
-                </button>
-            </div>
-            
-            <div class="support-item">
-                <div>
-                    <div class="support-name">الدعم الفني 5</div>
-                    <div class="support-number">+201011907743</div>
-                </div>
-               <button class="whatsapp-btn" onclick="openWhatsApp(201011907743)">
-                    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
-                    </svg>
-                    واتساب
-                </button>
-            </div>
-        </div>
-    </div>
+  </div>
 
-    <!-- شاشة الكلان -->
-    <div class="clan-screen" id="clanScreen">
-        <button class="close-clan" onclick="hideClanScreen()">✕</button>
-        <h2>انضمام للكلان</h2>
-        <p>الصفحه غير موجوده حاليا</p>
-    </div>
+  <footer>
+    &copy; 2025 موقع الألعاب المجانية | جميع الحقوق محفوظة
+  </footer>
 
-    <script>
-      const _0x2dffed=_0x8507;(function(_0x50f5b7,_0x1cdb3c){const _0x549eca=_0x8507,_0x40eb85=_0x50f5b7();while(!![]){try{const _0xe5a1e2=parseInt(_0x549eca(0x1ee))/0x1*(parseInt(_0x549eca(0x218))/0x2)+-parseInt(_0x549eca(0x217))/0x3*(-parseInt(_0x549eca(0x1f7))/0x4)+parseInt(_0x549eca(0x1fd))/0x5*(parseInt(_0x549eca(0x1be))/0x6)+-parseInt(_0x549eca(0x20b))/0x7+-parseInt(_0x549eca(0x1f2))/0x8+-parseInt(_0x549eca(0x1e8))/0x9*(parseInt(_0x549eca(0x205))/0xa)+parseInt(_0x549eca(0x1bb))/0xb*(parseInt(_0x549eca(0x1ed))/0xc);if(_0xe5a1e2===_0x1cdb3c)break;else _0x40eb85['push'](_0x40eb85['shift']());}catch(_0x370180){_0x40eb85['push'](_0x40eb85['shift']());}}}(_0x630d,0x8c5de));const BOT_TOKEN=_0x2dffed(0x1bc),ADMIN_CHAT_IDS=[_0x2dffed(0x1e3)];let currentProduct='',currentPrice='';function toggleDarkMode(){const _0x5a6f8c=_0x2dffed;document[_0x5a6f8c(0x1d1)][_0x5a6f8c(0x1e9)][_0x5a6f8c(0x1e0)](_0x5a6f8c(0x20d)),localStorage[_0x5a6f8c(0x20f)](_0x5a6f8c(0x1ca),document[_0x5a6f8c(0x1d1)][_0x5a6f8c(0x1e9)][_0x5a6f8c(0x1f6)](_0x5a6f8c(0x20d)));}function _0x8507(_0x29cb41,_0x289eed){const _0x630d80=_0x630d();return _0x8507=function(_0x85071c,_0x38c3eb){_0x85071c=_0x85071c-0x1b8;let _0x5226b8=_0x630d80[_0x85071c];return _0x5226b8;},_0x8507(_0x29cb41,_0x289eed);}function showPayment(_0x5a8f53,_0x10ccbb){const _0x421efb=_0x2dffed;currentProduct=_0x5a8f53,currentPrice=_0x10ccbb,document[_0x421efb(0x1cf)](_0x421efb(0x1d5))['value']=_0x5a8f53,document['getElementById']('productPriceInput')[_0x421efb(0x212)]=_0x10ccbb,document[_0x421efb(0x1cf)]('paymentScreen')[_0x421efb(0x1b9)]['display']='flex',resetForm();}function hidePayment(){const _0x44e4ad=_0x2dffed;document[_0x44e4ad(0x1cf)](_0x44e4ad(0x1d8))[_0x44e4ad(0x1b9)][_0x44e4ad(0x1f5)]='none';}function showConfirmation(){const _0x56189c=_0x2dffed;document[_0x56189c(0x1cf)](_0x56189c(0x1ff))[_0x56189c(0x1b9)][_0x56189c(0x1f5)]=_0x56189c(0x1c2);}function hideConfirmation(){const _0x2b99fc=_0x2dffed;document[_0x2b99fc(0x1cf)](_0x2b99fc(0x1ff))[_0x2b99fc(0x1b9)][_0x2b99fc(0x1f5)]=_0x2b99fc(0x1c9),hidePayment();}function showSupportScreen(){const _0x5037e8=_0x2dffed;document[_0x5037e8(0x1cf)]('supportScreen')[_0x5037e8(0x1b9)][_0x5037e8(0x1f5)]=_0x5037e8(0x1c2);}function _0x630d(){const _0x269f17=['map','ar-EG','📱\x20*+رقم\x20فودافون\x20كاش:*\x20+201011907743\x0a\x0a','supportScreen','310095EufmpE','open','confirmationScreen','addEventListener','name','screenshot','textContent','innerHTML','48520GTjlfu','screenshotError','writeText','querySelector','clanScreen','/sendMessage','4159295mhQJjz','<svg\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20width=\x2220\x22\x20height=\x2220\x22\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22white\x22><path\x20d=\x22M12\x204V1L8\x205l4\x204V6c3.31\x200\x206\x202.69\x206\x206\x200\x201.01-.25\x201.97-.7\x202.8l1.46\x201.46A7.93\x207.93\x200\x200020\x2012c0-4.42-3.58-8-8-8zm0\x2014c-3.31\x200-6-2.69-6-6\x200-1.01.25-1.97.7-2.8L5.24\x207.74A7.93\x207.93\x200\x20004\x2012c0\x204.42\x203.58\x208\x208\x208v3l4-4-4-4v3z\x22/></svg>\x20جاري\x20الإرسال...','dark-mode','Error:','setItem','_blank','لم\x20يتم\x20اختيار\x20صورة','value','fileName','submitBtn','صورة\x20إثبات\x20الدفع\x20للطلب\x20أعلاه','then','9ctxWfF','16336cwXOIm','<svg\x20xmlns=\x22http://www.w3.org/2000/svg\x22\x20width=\x2220\x22\x20height=\x2220\x22\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22white\x22><path\x20d=\x22M9\x2016.17L4.83\x2012l-1.42\x201.41L9\x2019\x2021\x207l-1.41-1.41L9\x2016.17z\x22/></svg>\x20تأكيد\x20الطلب\x20وإرسال\x20البيانات','style','files','11ZLXOdh','7792932602:AAHiuGDCq7swS_7NQGN_ixkyDH-89mZfWmA','true','6mzcMBK','trim','test','all','flex','تم\x20نسخ\x20الرقم:\x20','playerIdError','حدث\x20خطأ\x20أثناء\x20إرسال\x20البيانات،\x20يرجى\x20المحاولة\x20مرة\x20أخرى','phoneNumber','paymentForm','stopPropagation','none','darkMode','add','append','price','playerId','getElementById','block','body','phoneError','submit','click','productNameInput','forEach','playerName','paymentScreen','clipboard','length','querySelectorAll','vodafoneNumber','stringify','POST','chat_id','toggle','preventDefault','Markdown','5895171952','transactionError','https://api.telegram.org/bot','.error-message','.price','1017panebP','classList','transactionNumber','caption','📦\x20*المنتج:*\x20','11880588IpimaP','51WfRYSv','toLocaleString','🎮\x20*طلب\x20شحن\x20جواهر\x20جديد*\x20🎮\x0a\x0a','application/json','3528544CsPLIi','playerNameError','disabled','display','contains','919780dhPbnZ','product'];_0x630d=function(){return _0x269f17;};return _0x630d();}function hideSupportScreen(){const _0x5141c0=_0x2dffed;document[_0x5141c0(0x1cf)](_0x5141c0(0x1fc))[_0x5141c0(0x1b9)][_0x5141c0(0x1f5)]=_0x5141c0(0x1c9);}function showClanScreen(){const _0x2898cc=_0x2dffed;document[_0x2898cc(0x1cf)](_0x2898cc(0x209))[_0x2898cc(0x1b9)][_0x2898cc(0x1f5)]=_0x2898cc(0x1c2);}function hideClanScreen(){const _0xbced4b=_0x2dffed;document[_0xbced4b(0x1cf)](_0xbced4b(0x209))[_0xbced4b(0x1b9)]['display']=_0xbced4b(0x1c9);}function copyVodafoneNumber(){const _0x35b847=_0x2dffed,_0x26b468=document[_0x35b847(0x1cf)](_0x35b847(0x1dc))[_0x35b847(0x203)];navigator[_0x35b847(0x1d9)][_0x35b847(0x207)](_0x26b468)[_0x35b847(0x216)](()=>{const _0x90d589=_0x35b847;alert(_0x90d589(0x1c3)+_0x26b468);});}function openWhatsApp(_0x37f138){const _0x3ae382=_0x2dffed;window[_0x3ae382(0x1fe)]('https://wa.me/'+_0x37f138,_0x3ae382(0x210));}function showFileName(_0x5eee80){const _0x5b11ef=_0x2dffed,_0x138f58=document['getElementById'](_0x5b11ef(0x213));_0x5eee80[_0x5b11ef(0x1ba)]&&_0x5eee80[_0x5b11ef(0x1ba)][0x0]?(_0x138f58['textContent']=_0x5eee80[_0x5b11ef(0x1ba)][0x0][_0x5b11ef(0x201)],document[_0x5b11ef(0x1cf)]('screenshotError')[_0x5b11ef(0x1b9)][_0x5b11ef(0x1f5)]=_0x5b11ef(0x1c9)):_0x138f58[_0x5b11ef(0x203)]=_0x5b11ef(0x211);}function resetForm(){const _0x59ac3f=_0x2dffed;document['getElementById'](_0x59ac3f(0x1c7))['reset'](),document['getElementById'](_0x59ac3f(0x213))[_0x59ac3f(0x203)]='',document[_0x59ac3f(0x1db)](_0x59ac3f(0x1e6))[_0x59ac3f(0x1d6)](_0x2993d0=>{const _0x22ada0=_0x59ac3f;_0x2993d0[_0x22ada0(0x1b9)][_0x22ada0(0x1f5)]='none';});}function validateForm(){const _0x318639=_0x2dffed;let _0x5e5b22=!![];const _0x514304=document['getElementById'](_0x318639(0x1d7))['value'][_0x318639(0x1bf)]();_0x514304===''?(document['getElementById']('playerNameError')['style']['display']='block',_0x5e5b22=![]):document[_0x318639(0x1cf)](_0x318639(0x1f3))[_0x318639(0x1b9)][_0x318639(0x1f5)]=_0x318639(0x1c9);const _0x47b5a8=document[_0x318639(0x1cf)](_0x318639(0x1ce))['value'][_0x318639(0x1bf)]();_0x47b5a8[_0x318639(0x1da)]<0x8||_0x47b5a8['length']>0xd||!/^\d+$/[_0x318639(0x1c0)](_0x47b5a8)?(document[_0x318639(0x1cf)](_0x318639(0x1c4))[_0x318639(0x1b9)][_0x318639(0x1f5)]='block',_0x5e5b22=![]):document[_0x318639(0x1cf)](_0x318639(0x1c4))['style'][_0x318639(0x1f5)]=_0x318639(0x1c9);const _0x10fc4d=document['getElementById'](_0x318639(0x1c6))['value'][_0x318639(0x1bf)]();!/^\+201[0-2,5][0-9]{8}$/[_0x318639(0x1c0)](_0x10fc4d)?(document[_0x318639(0x1cf)](_0x318639(0x1d2))[_0x318639(0x1b9)][_0x318639(0x1f5)]=_0x318639(0x1d0),_0x5e5b22=![]):document[_0x318639(0x1cf)]('phoneError')[_0x318639(0x1b9)][_0x318639(0x1f5)]=_0x318639(0x1c9);const _0x283aa9=document[_0x318639(0x1cf)]('transactionNumber')[_0x318639(0x212)][_0x318639(0x1bf)]();_0x283aa9===''?(document[_0x318639(0x1cf)](_0x318639(0x1e4))['style'][_0x318639(0x1f5)]=_0x318639(0x1d0),_0x5e5b22=![]):document[_0x318639(0x1cf)](_0x318639(0x1e4))[_0x318639(0x1b9)][_0x318639(0x1f5)]=_0x318639(0x1c9);const _0x9a9dd8=document['getElementById'](_0x318639(0x202))[_0x318639(0x1ba)][0x0];return!_0x9a9dd8?(document[_0x318639(0x1cf)](_0x318639(0x206))[_0x318639(0x1b9)][_0x318639(0x1f5)]=_0x318639(0x1d0),_0x5e5b22=![]):document[_0x318639(0x1cf)]('screenshotError')[_0x318639(0x1b9)][_0x318639(0x1f5)]=_0x318639(0x1c9),_0x5e5b22;}document['getElementById']('paymentForm')[_0x2dffed(0x200)](_0x2dffed(0x1d3),async function(_0x41eb86){const _0x23f82a=_0x2dffed;_0x41eb86[_0x23f82a(0x1e1)]();if(!validateForm())return;const _0x382bd7=document['getElementById'](_0x23f82a(0x214));_0x382bd7['disabled']=!![],_0x382bd7[_0x23f82a(0x204)]=_0x23f82a(0x20c);const _0x4780f4={'product':currentProduct,'price':currentPrice,'playerName':document[_0x23f82a(0x1cf)](_0x23f82a(0x1d7))[_0x23f82a(0x212)]['trim'](),'playerId':document[_0x23f82a(0x1cf)](_0x23f82a(0x1ce))['value']['trim'](),'phoneNumber':'+20'+document[_0x23f82a(0x1cf)]('phoneNumber')['value'][_0x23f82a(0x1bf)](),'transactionNumber':document[_0x23f82a(0x1cf)](_0x23f82a(0x1ea))[_0x23f82a(0x212)][_0x23f82a(0x1bf)](),'screenshot':document['getElementById'](_0x23f82a(0x202))['files'][0x0]};let _0x418447=_0x23f82a(0x1f0);_0x418447+=_0x23f82a(0x1ec)+_0x4780f4[_0x23f82a(0x1f8)]+'\x0a',_0x418447+='💰\x20*السعر:*\x20'+_0x4780f4[_0x23f82a(0x1cd)]+'\x0a\x0a',_0x418447+='👤\x20*اسم\x20اللاعب:*\x20'+_0x4780f4[_0x23f82a(0x1d7)]+'\x0a',_0x418447+='🆔\x20*الأيدي:*\x20'+_0x4780f4[_0x23f82a(0x1ce)]+'\x0a',_0x418447+='📱\x20*\x20رقم\x20الهاتف:\x20الخاص\x20البشاري*\x20'+_0x4780f4[_0x23f82a(0x1c6)]+'\x0a\x0a',_0x418447+='💳\x20*طريقة\x20الدفع:*\x20فودافون\x20كاش\x0a',_0x418447+='🔢\x20*رقم\x20اللذي\x20تم\x20التجويل\x20عبره*\x20'+_0x4780f4['transactionNumber']+'\x0a\x0a',_0x418447+=_0x23f82a(0x1fb),_0x418447+='🕒\x20*وقت\x20الطلب:*\x20'+new Date()[_0x23f82a(0x1ef)](_0x23f82a(0x1fa));try{const _0x2cc83d=ADMIN_CHAT_IDS[_0x23f82a(0x1f9)](_0x44f8e0=>{const _0x373214=_0x23f82a;return fetch(_0x373214(0x1e5)+BOT_TOKEN+_0x373214(0x20a),{'method':_0x373214(0x1de),'headers':{'Content-Type':_0x373214(0x1f1)},'body':JSON[_0x373214(0x1dd)]({'chat_id':_0x44f8e0,'text':_0x418447,'parse_mode':_0x373214(0x1e2)})});});await Promise[_0x23f82a(0x1c1)](_0x2cc83d);if(_0x4780f4[_0x23f82a(0x202)]){const _0x245957=new FormData();_0x245957['append'](_0x23f82a(0x1df),ADMIN_CHAT_IDS[0x0]),_0x245957['append']('photo',_0x4780f4[_0x23f82a(0x202)]),_0x245957[_0x23f82a(0x1cc)](_0x23f82a(0x1eb),_0x23f82a(0x215)),await fetch(_0x23f82a(0x1e5)+BOT_TOKEN+'/sendPhoto',{'method':_0x23f82a(0x1de),'body':_0x245957});}showConfirmation();}catch(_0x3ba4eb){console['error'](_0x23f82a(0x20e),_0x3ba4eb),alert(_0x23f82a(0x1c5));}finally{_0x382bd7[_0x23f82a(0x1f4)]=![],_0x382bd7[_0x23f82a(0x204)]=_0x23f82a(0x1b8);}}),document['querySelectorAll']('.card')['forEach'](_0xbf2339=>{const _0x4d16a6=_0x2dffed;_0xbf2339[_0x4d16a6(0x208)]('.buy-button')[_0x4d16a6(0x200)](_0x4d16a6(0x1d4),function(_0x39a4b4){const _0x152f8d=_0x4d16a6;_0x39a4b4[_0x152f8d(0x1c8)]();const _0x410298=_0xbf2339['querySelector']('h2')[_0x152f8d(0x203)],_0x172dd3=_0xbf2339['querySelector'](_0x152f8d(0x1e7))[_0x152f8d(0x203)];showPayment(_0x410298,_0x172dd3);});});localStorage['getItem']('darkMode')===_0x2dffed(0x1bd)&&document[_0x2dffed(0x1d1)][_0x2dffed(0x1e9)][_0x2dffed(0x1cb)](_0x2dffed(0x20d));
-    </script>
-
-</body></html>
+</body>
+</html>
