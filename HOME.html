@@ -25,61 +25,7 @@
 
 
   <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyCS7KIb0nuOi1PM3cJv-k5zuVpXNS5KQm8",
-      authDomain: "gamaffdiamond.firebaseapp.com",
-      projectId: "gamaffdiamond",
-      storageBucket: "gamaffdiamond.appspot.com",
-      messagingSenderId: "999882574509",
-      appId: "1:999882574509:web:eb5a37b2b4ba38aa751424",
-      measurementId: "G-7F5JGXK7LF"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    const container = document.getElementById("gamesContainer");
-
-    db.collection("games").onSnapshot(snapshot => {
-      container.innerHTML = "";
-      snapshot.forEach(doc => {
-        const game = doc.data();
-        const card = document.createElement("div");
-        card.className = "game-card";
-        card.innerHTML = `
-          <img src="${game.image}" alt="${game.title}" class="game-img">
-          <div class="game-title">${game.title}</div>
-          <a href="${game.link}" target="_blank">
-            <button class="play-button">اشحن الآن</button>
-          </a>
-        `;
-        container.appendChild(card);
-      });
-    });
-        tsParticles.load("tsparticles", {
-      background: { color: "#000" },
-      fpsLimit: 60,
-      particles: {
-        number: { value: 100, density: { enable: true, area: 800 } },
-        color: { value: ["#00f7ff", "#ff0040"] },
-        shape: { type: "circle" },
-        opacity: { value: 0.8 },
-        size: { value: { min: 1, max: 4 } },
-        move: {
-          enable: true,
-          speed: 1,
-          direction: "none",
-          outModes: { default: "bounce" }
-        },
-        links: {
-          enable: true,
-          distance: 100,
-          color: "#ffffff",
-          opacity: 0.2,
-          width: 1
-        }
-      },
-      detectRetina: true
-    });
+const _0x17da52=_0x1c09;(function(_0x4aa02d,_0x4d4fd7){const _0x28e7b8=_0x1c09,_0x426167=_0x4aa02d();while(!![]){try{const _0x3444f4=-parseInt(_0x28e7b8(0x1ae))/0x1+parseInt(_0x28e7b8(0x19c))/0x2+-parseInt(_0x28e7b8(0x1b9))/0x3*(parseInt(_0x28e7b8(0x1b6))/0x4)+parseInt(_0x28e7b8(0x1b8))/0x5+-parseInt(_0x28e7b8(0x1a9))/0x6*(parseInt(_0x28e7b8(0x1ab))/0x7)+parseInt(_0x28e7b8(0x1bd))/0x8*(-parseInt(_0x28e7b8(0x1a5))/0x9)+-parseInt(_0x28e7b8(0x199))/0xa*(-parseInt(_0x28e7b8(0x19f))/0xb);if(_0x3444f4===_0x4d4fd7)break;else _0x426167['push'](_0x426167['shift']());}catch(_0x3edd5c){_0x426167['push'](_0x426167['shift']());}}}(_0xd6fa,0x79a4f));function _0x1c09(_0x3524c4,_0x2fbb75){const _0xd6fac=_0xd6fa();return _0x1c09=function(_0x1c0941,_0x46288d){_0x1c0941=_0x1c0941-0x199;let _0x532cc7=_0xd6fac[_0x1c0941];return _0x532cc7;},_0x1c09(_0x3524c4,_0x2fbb75);}const firebaseConfig={'apiKey':'AIzaSyCS7KIb0nuOi1PM3cJv-k5zuVpXNS5KQm8','authDomain':'gamaffdiamond.firebaseapp.com','projectId':_0x17da52(0x1bf),'storageBucket':_0x17da52(0x1a1),'messagingSenderId':_0x17da52(0x1a2),'appId':_0x17da52(0x1be),'measurementId':'G-7F5JGXK7LF'};firebase[_0x17da52(0x1a6)](firebaseConfig);const db=firebase[_0x17da52(0x1b4)](),container=document[_0x17da52(0x1a7)](_0x17da52(0x1b1));db['collection'](_0x17da52(0x1ba))[_0x17da52(0x1a4)](_0x51e7ed=>{const _0x59845e=_0x17da52;container[_0x59845e(0x1aa)]='',_0x51e7ed[_0x59845e(0x1b7)](_0x1b6371=>{const _0x457651=_0x59845e,_0x14c98d=_0x1b6371[_0x457651(0x1a8)](),_0x59873a=document[_0x457651(0x1b2)](_0x457651(0x1bc));_0x59873a[_0x457651(0x19b)]='game-card',_0x59873a[_0x457651(0x1aa)]=_0x457651(0x19d)+_0x14c98d[_0x457651(0x1a0)]+_0x457651(0x1af)+_0x14c98d[_0x457651(0x1b5)]+'\x22\x20class=\x22game-img\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22game-title\x22>'+_0x14c98d[_0x457651(0x1b5)]+_0x457651(0x1ac)+_0x14c98d['link']+'\x22\x20target=\x22_blank\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22play-button\x22>اشحن\x20الآن</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20',container['appendChild'](_0x59873a);});}),tsParticles[_0x17da52(0x1b0)](_0x17da52(0x1a3),{'background':{'color':_0x17da52(0x19a)},'fpsLimit':0x3c,'particles':{'number':{'value':0x64,'density':{'enable':!![],'area':0x320}},'color':{'value':[_0x17da52(0x1b3),'#ff0040']},'shape':{'type':'circle'},'opacity':{'value':0.8},'size':{'value':{'min':0x1,'max':0x4}},'move':{'enable':!![],'speed':0x1,'direction':_0x17da52(0x1bb),'outModes':{'default':_0x17da52(0x19e)}},'links':{'enable':!![],'distance':0x64,'color':_0x17da52(0x1ad),'opacity':0.2,'width':0x1}},'detectRetina':!![]});function _0xd6fa(){const _0x2f4367=['image','gamaffdiamond.appspot.com','999882574509','tsparticles','onSnapshot','90dCtxvi','initializeApp','getElementById','data','1052718vqFfhl','innerHTML','21JlNyvl','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22','#ffffff','688885ylGazr','\x22\x20alt=\x22','load','gamesContainer','createElement','#00f7ff','firestore','title','1679284inzuId','forEach','2730505cLTqVx','6RjzoNd','games','none','div','23232dozzUX','1:999882574509:web:eb5a37b2b4ba38aa751424','gamaffdiamond','11578290LIizXs','#000','className','1756502YthUBb','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22','bounce','11ZZOxMZ'];_0xd6fa=function(){return _0x2f4367;};return _0xd6fa();}
   </script>
 </body>
 </html>
