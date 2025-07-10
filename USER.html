@@ -1,0 +1,2046 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMA X CHEAT - Gaming Products Store</title>
+    <meta name="description" content="GAMA X CHEAT - Your premier source for gaming products and digital enhancements">
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3498db">
+    <link rel="apple-touch-icon" href="/icons/icon-192x192.svg">
+    
+    <!-- Fonts and Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles - Modern Design 2023 */
+        :root {
+            --primary-color: #7371fc; /* Modern purple */
+            --primary-color-rgb: 115, 113, 252; /* RGB values for primary color */
+            --secondary-color: #00d68f; /* Vibrant teal */
+            --accent-color: #ff6b6b; /* Soft red */
+            --text-color: #1a1a2e; /* Deep blue-black */
+            --heading-color: #151528; /* Slightly darker for headings */
+            --bg-color: #ffffff;
+            --card-bg: #f8f9fa;
+            --input-bg: #ffffff; /* Input background in light mode */
+            --border-color: #e0e0e0; /* Light gray for borders */
+            --header-bg: #1a1a2e; /* Deep blue-black */
+            --footer-bg: #1a1a2e; /* Deep blue-black */
+            --border-radius: 12px; /* More rounded corners */
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            --transition-speed: 0.3s;
+            --font-main: 'Poppins', sans-serif;
+            --success-color: #00d68f;
+            --warning-color: #ffbe0b;
+            --danger-color: #ff6b6b;
+            --info-color: #55a3ff;
+        }
+        
+        /* Dark Mode - Modern Design 2023 */
+        [data-theme="dark"] {
+            --primary-color: #8f8df2; /* Lighter purple for dark mode */
+            --primary-color-rgb: 143, 141, 242; /* RGB values for primary color in dark mode */
+            --secondary-color: #00e6a1; /* Brighter teal for contrast */
+            --accent-color: #ff8080; /* Lighter red */
+            --text-color: #f8f9fa; /* Almost white text */
+            --heading-color: #ffffff; /* White for headings in dark mode */
+            --bg-color: #0f0f1a; /* Very dark blue-black */
+            --card-bg: #1a1a2e; /* Dark blue-black */
+            --input-bg: #1e1e36; /* Darker input background for dark mode */
+            --border-color: #2d2d4d; /* Darker border for dark mode */
+            --header-bg: #0a0a14; /* Darker blue-black */
+            --footer-bg: #0a0a14; /* Darker blue-black */
+            --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+            --success-color: #00e6a1;
+            --warning-color: #ffd000;
+            --danger-color: #ff8080;
+            --info-color: #70b1ff;
+        }
+        
+        /* Animated Background */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            scroll-behavior: smooth;
+            position: relative;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, rgba(52, 152, 219, 0.1), rgba(46, 204, 113, 0.1), rgba(231, 76, 60, 0.1), rgba(155, 89, 182, 0.1));
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            opacity: 0.6;
+        }
+        
+        [data-theme="dark"] body::before {
+            background: linear-gradient(-45deg, rgba(41, 128, 185, 0.2), rgba(39, 174, 96, 0.2), rgba(192, 57, 43, 0.2), rgba(142, 68, 173, 0.2));
+            opacity: 0.4;
+        }
+        
+        /* RTL Support */
+        html[dir="rtl"] .product-grid {
+            direction: rtl;
+        }
+        
+        /* Layout */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color var(--transition-speed);
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .active {
+            background-color: var(--primary-color);
+            color: white !important;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section - Modern Design 2023 */
+        .hero {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 100px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            text-align: left;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-in-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0 0 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-in-out 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            animation: fadeInUp 1s ease-in-out 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(115, 113, 252, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(115, 113, 252, 0.6);
+        }
+        
+        .cta-button-secondary {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            text-decoration: none;
+        }
+        
+        .cta-button-secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: float 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes float {
+            from { transform: translateY(0px); }
+            to { transform: translateY(-20px); }
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            z-index: 1;
+        }
+        
+        .hero-image::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-content {
+                text-align: center;
+                order: 1;
+            }
+            
+            .hero-image {
+                order: 0;
+                margin-bottom: 40px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: all var(--transition-speed);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .product-image {
+            height: 220px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-speed);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 25px;
+            position: relative;
+        }
+        
+        .product-category {
+            position: absolute;
+            top: -12px;
+            left: 25px;
+            background-color: var(--secondary-color);
+            color: white;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-color);
+            transition: color var(--transition-speed);
+        }
+        
+        .product-card:hover .product-title {
+            color: var(--primary-color);
+        }
+        
+        .product-description {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        [data-theme="dark"] .product-meta {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+        
+        /* Empty State & Error State Styles */
+        .empty-state, .error-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 3rem;
+            background: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            width: 100%;
+            grid-column: 1 / -1;
+            gap: 1rem;
+        }
+        
+        .error-state {
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .empty-state h3, .error-state h3 {
+            margin: 1rem 0 0.5rem;
+            color: var(--text-color);
+        }
+        
+        .empty-state p, .error-state p {
+            color: var(--muted-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .error-details {
+            font-family: monospace;
+            background: rgba(255, 107, 107, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            font-size: 0.8rem;
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+        
+        .add-to-cart {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(115, 113, 252, 0.2);
+        }
+        
+        .add-to-cart i {
+            font-size: 0.9rem;
+        }
+        
+        .add-to-cart:hover {
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            box-shadow: 0 7px 20px rgba(115, 113, 252, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: white;
+            opacity: 0.8;
+            text-decoration: none;
+            transition: opacity var(--transition-speed);
+            display: inline-block;
+        }
+        
+        .footer-col ul li a:hover {
+            opacity: 1;
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: var(--header-bg);
+                transition: left var(--transition-speed);
+                z-index: 1000;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            
+            nav.open {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                margin-top: 60px;
+            }
+            
+            nav ul li {
+                margin: 0 0 20px 0;
+            }
+            
+            .close-menu {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+            
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity var(--transition-speed);
+            }
+            
+            .overlay.open {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        /* Loader */
+        .loader {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--primary-color);
+            border-top: 5px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-left: 20px;
+            font-size: 1.2rem;
+        }
+
+        .theme-toggle i {
+            color: white;
+        }
+
+        /* Cart Responsive Styling */
+        .cart-container {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 380px;
+            height: 100vh;
+            background-color: var(--bg-color);
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all var(--transition-speed);
+            overflow: hidden;
+            border-left: 3px solid var(--primary-color);
+            color: var(--text-color); /* Ensure good text contrast in all modes */
+        }
+
+        .cart-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: var(--bg-color); /* Explicit bg-color for cart content */
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-header h2 {
+            margin: 0;
+        }
+
+        .cart-header button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        .cart-items {
+            flex: 1;
+            margin-bottom: 30px;
+            overflow-y: auto;
+        }
+
+        .cart-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .cart-subtotal {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .checkout-button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: var(--bg-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-header h2 {
+            margin: 0;
+        }
+
+        .modal-header button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        /* Form Styling */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--heading-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Improved visibility for form inputs */
+        .form-input {
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2);
+            outline: none;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Order Summary */
+        .order-summary {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.03);
+            border-radius: var(--border-radius);
+        }
+
+        .order-summary h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+            font-weight: bold;
+        }
+
+        .submit-order {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        /* Order Confirmation */
+        .text-center {
+            text-align: center;
+        }
+
+        .confirmation-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .back-to-shop {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        /* Review Form */
+        .review-form-container {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.02);
+            border-radius: var(--border-radius);
+        }
+
+        .stars {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .star {
+            font-size: 1.5rem;
+            color: #ccc;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .star.active {
+            color: var(--accent-color);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .cart-container {
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+            }
+
+            .cart-container.active {
+                right: 0;
+            }
+
+            .modal-content {
+                width: 95%;
+                max-height: 80vh;
+            }
+
+            .form-group label,
+            .form-group input,
+            .form-group textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="https://yt3.ggpht.com/9COeS9th60XU5NOKdlgsD5itX0aKyiy6oJH1nX4CaRmZusWE9WCenjoNi8fCU41AclEk8wDUPw=s176-c-k-c0x00ffffff-no-rj-mo" class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>GAMA X CHEAT</span>
+            </a>
+            
+            <div style="display: flex; align-items: center;">
+                <button class="mobile-toggle" id="mobileToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav id="mainNav">
+                    <button class="close-menu" id="closeMenu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    
+                    <ul>
+                        <li><a href="#" class="active">الرئيسية</a></li>
+                        <li><a href="#products">المنتجات</a></li>
+                        <li><a href="#testimonials">آراء العملاء</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    
+                    </ul>
+                </nav>
+                
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </div>
+                
+                <button id="cartToggle" style="background: none; border: none; margin-left: 20px; cursor: pointer;">
+                    <i class="fas fa-shopping-cart" style="color: white; font-size: 1.2rem;"></i>
+                    <span id="cartCount" style="background-color: var(--accent-color); color: white; border-radius: 50%; padding: 3px 6px; font-size: 0.7rem; margin-left: 5px;">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>ارتقِ بتجربة ألعابك</h1>
+                <p>اكتشف منتجات وتعزيزات الألعاب المميزة والخدمات الرقمية لتحسين أسلوب لعبك والتفوق على المنافسين.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="cta-button">تسوق الآن</a>
+                    <a href="#testimonials" class="cta-button-secondary">آراء العملاء</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://static.wixstatic.com/media/06e865_13c7e19261734922b6f45e5cb6878b05~mv2.png/v1/fill/w_750,h_500,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/06e865_13c7e19261734922b6f45e5cb6878b05~mv2.png" alt="معدات الألعاب الاحترافية">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>منتجاتنا</h2>
+                <p>تصفح مجموعتنا من منتجات الألعاب عالية الجودة والتحسينات الرقمية</p>
+            </div>
+            
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be added here dynamically -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x200?text=Loading..." alt="Loading">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Loading products...</h3>
+                        <p class="product-description">Please wait while we fetch the products from our database.</p>
+                        <div class="product-meta">
+                            <span class="product-price">L.E 0.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>آراء العملاء</h2>
+                <p>شاهد ما يقوله عملاؤنا عن منتجاتنا وخدماتنا</p>
+            </div>
+            
+            <div class="product-grid" id="testimonialGrid">
+                <!-- Testimonials will be added here dynamically -->
+                <div class="product-card">
+                    <div class="product-info">
+                        <p class="product-description">Loading testimonials...</p>
+                        <div class="product-meta">
+                            <span>- Loading</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add Review Button -->
+            <div class="add-review-button-container" style="text-align: center; margin: 30px 0;">
+                <button id="showReviewForm" class="cta-button" style="font-size: 1.2rem; padding: 15px 30px;">
+                    <i class="fas fa-star"></i> أضف رأيك
+                </button>
+            </div>
+            
+            <!-- Review Form -->
+            <div class="review-form-container" id="reviewFormContainer">
+                <div class="section-title">
+                    <h3>اترك رأيك</h3>
+                    <p>شارك تجربتك مع منتجاتنا وخدماتنا</p>
+                </div>
+                
+                <form id="reviewForm">
+                    <div class="form-group">
+                        <label>التقييم</label>
+                        <div class="stars" id="ratingStars">
+                            <span class="star" data-value="1"><i class="fas fa-star"></i></span>
+                            <span class="star" data-value="2"><i class="fas fa-star"></i></span>
+                            <span class="star" data-value="3"><i class="fas fa-star"></i></span>
+                            <span class="star" data-value="4"><i class="fas fa-star"></i></span>
+                            <span class="star" data-value="5"><i class="fas fa-star"></i></span>
+                        </div>
+                        <input type="hidden" id="rating" value="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reviewerName">اسمك</label>
+                        <input type="text" id="reviewerName" required placeholder="أدخل اسمك" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reviewContent">رأيك</label>
+                        <textarea id="reviewContent" required placeholder="اكتب رأيك هنا" class="form-input"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-order">إرسال التقييم</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>GAMA X CHEAT</h3>
+                    <p>Your premier source for gaming products and digital enhancements. Elevate your gaming experience with our premium solutions.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i>gama5547571265@gmail.com</li>
+                        <li><i class="fas fa-phone"></i>+201011907743</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Gaming Street, Virtual City</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 GAMA X CHEAT. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal (Desktop Sidebar / Mobile Popup) -->
+    <div class="cart-container" id="cartSidebar">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>سلة التسوق</h2>
+                <button id="closeCart">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div id="cartItems" class="cart-items">
+                <!-- Cart items will be dynamically added here -->
+                <p id="emptyCartMessage">السلة فارغة</p>
+            </div>
+            
+            <div class="cart-footer">
+                <div class="cart-subtotal">
+                    <span>المجموع:</span>
+                    <span id="cartSubtotal">L.E 0.00</span>
+                </div>
+                
+                <button id="checkoutBtn" class="checkout-button">
+                    إتمام الطلب
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>إتمام الطلب</h2>
+                <button id="closeCheckoutModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <form id="checkoutForm">
+                    <div class="form-group">
+                        <label for="customerName">الاسم الكامل</label>
+                        <input type="text" id="customerName" required placeholder="أدخل اسمك الكامل" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerPhone">رقم الهاتف</label>
+                        <input type="tel" id="customerPhone" required placeholder="أدخل رقم هاتفك" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerEmail">البريد الإلكتروني</label>
+                        <input type="email" id="customerEmail" required placeholder="أدخل بريدك الإلكتروني" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerNotes">ملاحظات إضافية (اختياري)</label>
+                        <textarea id="customerNotes" class="form-input" placeholder="أي ملاحظات إضافية تريد إضافتها للطلب"></textarea>
+                    </div>
+                    
+                    <div class="order-summary">
+                        <h3>ملخص الطلب</h3>
+                        <div id="orderItemsList"></div>
+                        <div class="order-total">
+                            <span>المجموع:</span>
+                            <span id="orderTotal">L.E0.00</span>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-order">تأكيد الطلب</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Order Confirmation Modal -->
+    <div class="modal" id="orderConfirmationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>تأكيد الطلب</h2>
+                <button id="closeOrderConfirmation">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body text-center">
+                <i class="fas fa-check-circle confirmation-icon"></i>
+                <h3>شكراً لطلبك!</h3>
+                <p>تم استلام طلبك بنجاح.</p>
+                <p>رقم الطلب: <span id="orderIdDisplay"></span></p>
+                <p>سيقوم فريقنا بالتواصل معك قريبًا من خلال بيانات الاتصال التي قدمتها لإتمام عملية الشراء.</p>
+                <button id="backToShop" class="back-to-shop">العودة للتسوق</button>
+            </div>
+        </div>
+    </div>
+  <script src="./Home _ Welcome_files/tsparticles.bundle.min.js.download"></script>
+    <!-- Firebase -->
+    <script type="module">
+        
+        // Firebase configuration
+ const firebaseConfig = {
+  apiKey: "AIzaSyCS7KIb0nuOi1PM3cJv-k5zuVpXNS5KQm8",
+  authDomain: "gamaffdiamond.firebaseapp.com",
+  projectId: "gamaffdiamond",
+  storageBucket: "gamaffdiamond.firebasestorage.app",
+  messagingSenderId: "999882574509",
+  appId: "1:999882574509:web:eb5a37b2b4ba38aa751424",
+  measurementId: "G-7F5JGXK7LF"
+};
+
+
+
+
+        // Import Firebase modules
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js';
+        import { 
+            getFirestore, 
+            collection,
+            getDocs,
+            doc,
+            getDoc,
+            addDoc,
+            updateDoc,
+            deleteDoc,
+            onSnapshot
+        } from 'https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js';
+        import { 
+            getAuth, 
+            signInWithEmailAndPassword, 
+            onAuthStateChanged, 
+            signOut 
+        } from 'https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js';
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        // DOM elements
+        const productGrid = document.getElementById('productGrid');
+        const testimonialGrid = document.getElementById('testimonialGrid');
+        const loader = document.getElementById('loader');
+        const cartCount = document.getElementById('cartCount');
+        const cartItems = document.getElementById('cartItems');
+        const emptyCartMessage = document.getElementById('emptyCartMessage');
+        const cartSubtotal = document.getElementById('cartSubtotal');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const cartToggle = document.getElementById('cartToggle');
+        const closeCart = document.getElementById('closeCart');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mainNav = document.getElementById('mainNav');
+        const closeMenu = document.getElementById('closeMenu');
+        const overlay = document.getElementById('overlay');
+        const themeToggle = document.getElementById('themeToggle');
+
+        // Show loader
+        function showLoader() {
+            loader.style.display = 'flex';
+        }
+
+        // Hide loader
+        function hideLoader() {
+            loader.style.display = 'none';
+        }
+
+        // Shopping cart
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        updateCartCount();
+
+        // Update cart count
+        function updateCartCount() {
+            cartCount.textContent = cart.length;
+            updateCartDisplay();
+        }
+
+        // Update cart display
+        function updateCartDisplay() {
+            if (cart.length === 0) {
+                emptyCartMessage.style.display = 'block';
+                cartItems.innerHTML = '<p id="emptyCartMessage">السلة فارغة</p>';
+                cartSubtotal.textContent = 'L.E 0.00';
+            } else {
+                emptyCartMessage.style.display = 'none';
+                
+                let subtotal = 0;
+                let cartHTML = '';
+                
+                cart.forEach((item, index) => {
+                    subtotal += item.price * item.quantity;
+                    
+                    cartHTML += `
+                        <div style="display: flex; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid rgba(0,0,0,0.1);">
+                            <div style="width: 80px; height: 80px; margin-right: 15px; border-radius: 5px; overflow: hidden;">
+                                <img src="${item.image}" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div style="flex: 1;">
+                                <h4 style="margin: 0 0 5px;">${item.name}</h4>
+                                <p style="margin: 0 0 5px; font-size: 0.9rem;">L.E${item.price.toFixed(2)} x ${item.quantity}</p>
+                                <button onclick="removeFromCart(${index})" class="remove-item" data-index="${index}" style="background: none; border: none; color: var(--primary-color); cursor: pointer; font-size: 0.8rem; padding: 0;">
+                                    <i class="fas fa-trash-alt"></i> حذف
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItems.innerHTML = cartHTML;
+                cartSubtotal.textContent = 'L.E' + subtotal.toFixed(2);
+                
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        removeFromCart(index);
+                    });
+                });
+            }
+        }
+
+        // Add item to cart
+        window.addToCart = function(product) {
+            const existingItem = cart.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                });
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Show notification
+            const notification = document.createElement('div');
+            notification.style.position = 'fixed';
+            notification.style.bottom = '20px';
+            notification.style.right = '20px';
+            notification.style.backgroundColor = 'var(--primary-color)';
+            notification.style.color = 'white';
+            notification.style.padding = '10px 20px';
+            notification.style.borderRadius = 'var(--border-radius)';
+            notification.style.boxShadow = 'var(--box-shadow)';
+            notification.style.zIndex = '1000';
+            notification.style.transition = 'all 0.3s ease';
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(20px)';
+            notification.textContent = `تم إضافة ${product.name} إلى السلة`;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.opacity = '1';
+                notification.style.transform = 'translateY(0)';
+            }, 10);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateY(20px)';
+                
+                // Remove from DOM after animation completes
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        };
+
+        // Remove item from cart
+        window.removeFromCart = function(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+        };
+
+        // Listen for real-time product updates from Firestore
+        function listenForProductUpdates() {
+            try {
+                showLoader();
+                console.log("Setting up real-time listener for products...");
+                
+                // Ensure we have a proper Firebase app and database connection
+                if (!db) {
+                    console.error("Firebase database connection not established");
+                    throw new Error("Database connection failed");
+                }
+                
+                const productsCollection = collection(db, "products");
+                
+                // Set up a real-time listener
+                return onSnapshot(productsCollection, (snapshot) => {
+                    console.log("Products updated in real-time");
+                    
+                    if (snapshot.empty) {
+                        console.log("No products found in Firestore. Please add products through the control panel.");
+                        productGrid.innerHTML = `
+                            <div class="empty-state">
+                                <i class="fas fa-shopping-bag" style="font-size: 4rem; color: var(--muted-color);"></i>
+                                <h3>لا توجد منتجات متاحة حالياً</h3>
+                                <p>يرجى إضافة منتجات من خلال لوحة التحكم</p>
+                            </div>
+                        `;
+                    } else {
+                        let productsHTML = '';
+                        
+                        snapshot.forEach(doc => {
+                            const product = doc.data();
+                            product.id = doc.id;
+                            
+                            productsHTML += `
+                                <div class="product-card">
+                                    <div class="product-image">
+                                        <img src="${product.image || 'https://via.placeholder.com/300x200?text=No+Image'}" alt="${product.name}">
+                                    </div>
+                                    <div class="product-info">
+                                        <span class="product-category">${product.category || 'الألعاب'}</span>
+                                        <h3 class="product-title">${product.name}</h3>
+                                        <p class="product-description">${product.description}</p>
+                                        <div class="product-meta">
+                                            <span class="product-price">$${parseFloat(product.price).toFixed(2)}</span>
+                                            <button class="add-to-cart" onclick="addToCart(${JSON.stringify(product).replace(/"/g, '&quot;')})">
+                                                <i class="fas fa-shopping-cart"></i> أضف للسلة
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        
+                        productGrid.innerHTML = productsHTML;
+                    }
+                    
+                    hideLoader();
+                }, (error) => {
+                    console.error("Error listening to products: ", error);
+                    productGrid.innerHTML = `
+                        <div class="error-state">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: var(--accent-color);"></i>
+                            <h3>حدث خطأ أثناء تحميل المنتجات</h3>
+                            <p>يرجى التحقق من اتصال Firebase والمحاولة مرة أخرى</p>
+                            <p class="error-details">${error.message}</p>
+                        </div>
+                    `;
+                    hideLoader();
+                });
+            } catch (error) {
+                console.error("Error setting up product listener: ", error);
+                productGrid.innerHTML = `
+                    <div class="error-state">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: var(--accent-color);"></i>
+                        <h3>حدث خطأ أثناء الاتصال بقاعدة البيانات</h3>
+                        <p>يرجى التحقق من اتصال Firebase والمحاولة مرة أخرى</p>
+                        <p class="error-details">${error.message}</p>
+                    </div>
+                `;
+                hideLoader();
+                return null;
+            }
+        }
+        
+        // Backward compatibility for old function name
+        async function fetchProducts() {
+            console.log("fetchProducts is deprecated, using real-time listener instead");
+            if (!window.productsUnsubscribe) {
+                window.productsUnsubscribe = listenForProductUpdates();
+            }
+        }
+
+        // Listen for real-time testimonials updates from Firestore
+        function listenForTestimonialsUpdates() {
+            try {
+                console.log("Setting up real-time listener for testimonials...");
+                
+                // Ensure we have a proper Firebase app and database connection
+                if (!db) {
+                    console.error("Firebase database connection not established");
+                    throw new Error("Database connection failed");
+                }
+                
+                const testimonialsCollection = collection(db, "testimonials");
+                
+                // Set up a real-time listener
+                return onSnapshot(testimonialsCollection, (snapshot) => {
+                    console.log("Testimonials updated in real-time");
+                    
+                    if (snapshot.empty) {
+                        console.log("No testimonials found in Firestore. Please add testimonials through the control panel.");
+                        testimonialGrid.innerHTML = `
+                            <div class="empty-state">
+                                <i class="fas fa-comment-alt" style="font-size: 4rem; color: var(--muted-color);"></i>
+                                <h3>لا توجد آراء متاحة حالياً</h3>
+                                <p>يرجى إضافة آراء العملاء من خلال لوحة التحكم</p>
+                            </div>
+                        `;
+                    } else {
+                        let testimonialsHTML = '';
+                        
+                        snapshot.forEach(doc => {
+                            const testimonial = doc.data();
+                            
+                            // Check if we have text (old format) or content (new format)
+                            const content = testimonial.text || testimonial.content || '';
+                            const author = testimonial.author || testimonial.name || '';
+                            
+                            testimonialsHTML += `
+                                <div class="product-card">
+                                    <div class="product-info">
+                                        <p class="product-description">"${content}"</p>
+                                        <div class="product-meta">
+                                            <span>- ${author}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+                        
+                        testimonialGrid.innerHTML = testimonialsHTML;
+                    }
+                }, (error) => {
+                    console.error("Error listening to testimonials: ", error);
+                    testimonialGrid.innerHTML = `
+                        <div class="error-state">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: var(--accent-color);"></i>
+                            <h3>حدث خطأ أثناء تحميل آراء العملاء</h3>
+                            <p>يرجى التحقق من اتصال Firebase والمحاولة مرة أخرى</p>
+                            <p class="error-details">${error.message}</p>
+                        </div>
+                    `;
+                });
+            } catch (error) {
+                console.error("Error setting up testimonials listener: ", error);
+                testimonialGrid.innerHTML = `
+                    <div class="error-state">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 4rem; color: var(--accent-color);"></i>
+                        <h3>حدث خطأ أثناء الاتصال بقاعدة البيانات</h3>
+                        <p>يرجى التحقق من اتصال Firebase والمحاولة مرة أخرى</p>
+                        <p class="error-details">${error.message}</p>
+                    </div>
+                `;
+                return null;
+            }
+        }
+        
+        // Backward compatibility for old function name
+        async function fetchTestimonials() {
+            console.log("fetchTestimonials is deprecated, using real-time listener instead");
+            if (!window.testimonialsUnsubscribe) {
+                window.testimonialsUnsubscribe = listenForTestimonialsUpdates();
+            }
+        }
+
+        // Mobile navigation toggle
+        mobileToggle.addEventListener('click', () => {
+            mainNav.classList.add('open');
+            overlay.classList.add('open');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mainNav.classList.remove('open');
+            overlay.classList.remove('open');
+        });
+
+        overlay.addEventListener('click', () => {
+            mainNav.classList.remove('open');
+            overlay.classList.remove('open');
+            cartSidebar.style.right = '-400px';
+        });
+
+        // Cart toggle
+        cartToggle.addEventListener('click', () => {
+            cartSidebar.style.right = '0';
+            overlay.classList.add('open');
+        });
+
+        closeCart.addEventListener('click', () => {
+            cartSidebar.style.right = '-400px';
+            overlay.classList.remove('open');
+        });
+
+        // Theme toggle
+        themeToggle.addEventListener('click', () => {
+            if (document.body.getAttribute('data-theme') === 'dark') {
+                document.body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        });
+
+        // Check saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        // Modal elements
+        const checkoutModal = document.getElementById('checkoutModal');
+        const closeCheckoutModal = document.getElementById('closeCheckoutModal');
+        const orderConfirmationModal = document.getElementById('orderConfirmationModal');
+        const closeOrderConfirmation = document.getElementById('closeOrderConfirmation');
+        const backToShop = document.getElementById('backToShop');
+        const orderIdDisplay = document.getElementById('orderIdDisplay');
+        const orderItemsList = document.getElementById('orderItemsList');
+        const orderTotal = document.getElementById('orderTotal');
+        const checkoutForm = document.getElementById('checkoutForm');
+        const reviewForm = document.getElementById('reviewForm');
+        const ratingStars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('rating');
+
+        // Show/hide cart
+        function showCart() {
+            cartSidebar.classList.add('active');
+            cartSidebar.style.right = '0';
+            overlay.style.display = 'block';
+        }
+
+        function hideCart() {
+            cartSidebar.classList.remove('active');
+            cartSidebar.style.right = '-100%';
+            overlay.style.display = 'none';
+        }
+
+        // Show/hide modal
+        function showModal(modal) {
+            modal.style.display = 'flex';
+        }
+
+        function hideModal(modal) {
+            modal.style.display = 'none';
+        }
+
+        // Generate Order ID
+        function generateOrderId() {
+            const timestamp = new Date().getTime();
+            const random = Math.floor(Math.random() * 10000);
+            return `GXC-${timestamp}-${random}`;
+        }
+
+        // Prepare order summary
+        function prepareOrderSummary() {
+            let itemsHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                itemsHTML += `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>${item.name} x ${item.quantity}</span>
+                        <span>L.E ${itemTotal.toFixed(2)}</span>
+                    </div>
+                `;
+            });
+            
+            orderItemsList.innerHTML = itemsHTML;
+            orderTotal.textContent = 'L.E' + total.toFixed(2);
+        }
+
+        // Handle checkout form submission
+        async function handleCheckoutSubmission(event) {
+            event.preventDefault();
+            
+            const customerName = document.getElementById('customerName').value;
+            const customerPhone = document.getElementById('customerPhone').value;
+            const customerEmail = document.getElementById('customerEmail').value;
+            const customerNotes = document.getElementById('customerNotes').value;
+            const orderId = generateOrderId();
+            
+            try {
+                showLoader();
+                
+                // Create order in Firestore
+                const orderData = {
+                    orderId: orderId,
+                    customerName: customerName,
+                    customerPhone: customerPhone,
+                    customerEmail: customerEmail,
+                    customerNotes: customerNotes,
+                    items: cart,
+                    total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                    status: 'pending',
+                    createdAt: new Date().toISOString()
+                };
+                
+                const ordersCollection = collection(db, "orders");
+                await addDoc(ordersCollection, orderData);
+                
+                // Show confirmation
+                orderIdDisplay.textContent = orderId;
+                hideModal(checkoutModal);
+                showModal(orderConfirmationModal);
+                
+                // Clear cart
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                
+            } catch (error) {
+                console.error("Error creating order: ", error);
+                alert("There was an error processing your order. Please try again later.");
+            } finally {
+                hideLoader();
+            }
+        }
+
+        // Handle review form submission
+        async function handleReviewSubmission(event) {
+            event.preventDefault();
+            
+            const rating = parseInt(ratingInput.value);
+            const reviewerName = document.getElementById('reviewerName').value;
+            const reviewContent = document.getElementById('reviewContent').value;
+            
+            if (rating === 0) {
+                alert("Please select a rating before submitting your review.");
+                return;
+            }
+            
+            try {
+                showLoader();
+                
+                // Create testimonial in Firestore
+                const testimonialData = {
+                    name: reviewerName,
+                    content: reviewContent,
+                    rating: rating,
+                    createdAt: new Date().toISOString()
+                };
+                
+                const testimonialsCollection = collection(db, "testimonials");
+                await addDoc(testimonialsCollection, testimonialData);
+                
+                // Reset form
+                reviewForm.reset();
+                ratingStars.forEach(star => star.classList.remove('active'));
+                ratingInput.value = 0;
+                
+                // Show success message
+                alert("Thank you for your review! It has been submitted successfully.");
+                
+                // Refresh testimonials
+                await fetchTestimonials();
+                
+            } catch (error) {
+                console.error("Error submitting review: ", error);
+                alert("There was an error submitting your review. Please try again later.");
+            } finally {
+                hideLoader();
+            }
+        }
+
+        // Event listeners for cart
+        cartToggle.addEventListener('click', showCart);
+        closeCart.addEventListener('click', hideCart);
+        overlay.addEventListener('click', hideCart);
+        
+        // Event listeners for checkout
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Add some products before checkout.');
+                return;
+            }
+            
+            prepareOrderSummary();
+            hideCart();
+            showModal(checkoutModal);
+        });
+        
+        closeCheckoutModal.addEventListener('click', () => hideModal(checkoutModal));
+        closeOrderConfirmation.addEventListener('click', () => hideModal(orderConfirmationModal));
+        backToShop.addEventListener('click', () => {
+            hideModal(orderConfirmationModal);
+            window.scrollTo({
+                top: document.getElementById('products').offsetTop - 100,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Event listeners for forms
+        checkoutForm.addEventListener('submit', handleCheckoutSubmission);
+        reviewForm.addEventListener('submit', handleReviewSubmission);
+        
+        // Event listeners for review form toggle
+        const showReviewFormBtn = document.getElementById('showReviewForm');
+        const reviewFormContainer = document.getElementById('reviewFormContainer');
+        
+        // Initially hide the review form
+        reviewFormContainer.style.display = 'none';
+        
+        // Toggle the review form visibility when button is clicked
+        showReviewFormBtn.addEventListener('click', function() {
+            reviewFormContainer.style.display = reviewFormContainer.style.display === 'none' ? 'block' : 'none';
+            // Scroll to the form when it's displayed
+            if (reviewFormContainer.style.display === 'block') {
+                reviewFormContainer.scrollIntoView({behavior: 'smooth'});
+            }
+        });
+        
+        // Event listeners for star rating
+        ratingStars.forEach(star => {
+            star.addEventListener('click', function() {
+                const value = parseInt(this.getAttribute('data-value'));
+                ratingInput.value = value;
+                
+                // Update visual
+                ratingStars.forEach(s => {
+                    if (parseInt(s.getAttribute('data-value')) <= value) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Setup real-time listeners for Firestore collections
+            window.productsUnsubscribe = listenForProductUpdates();
+            window.testimonialsUnsubscribe = listenForTestimonialsUpdates();
+            updateCartDisplay();
+            
+            // Clean up listeners when the page is unloaded
+            window.addEventListener('beforeunload', () => {
+                if (window.productsUnsubscribe) window.productsUnsubscribe();
+                if (window.testimonialsUnsubscribe) window.testimonialsUnsubscribe();
+            });
+        });
+
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.error('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    
+// Load Site Settings from Firestore
+async function loadSiteSettings() {
+    const ref = doc(db, "website", "settings");
+    const snap = await getDoc(ref);
+
+    if (snap.exists()) {
+        const data = snap.data();
+
+        // Title
+        document.title = data.siteName || document.title;
+        const titleEl = document.querySelector('.logo span');
+        if (titleEl) titleEl.textContent = data.siteName;
+
+        // Colors
+        if (data.primaryColor)
+            document.documentElement.style.setProperty('--primary-color', data.primaryColor);
+        if (data.cartTextColor)
+            document.documentElement.style.setProperty('--cart-text-color', data.cartTextColor);
+        if (data.cartBgColor)
+            document.documentElement.style.setProperty('--cart-bg-color', data.cartBgColor);
+
+        // Currency display
+        const currencySymbol = getCurrencySymbol(data.currency);
+        document.querySelectorAll('.product-price, #cartSubtotal, #orderTotal').forEach(el => {
+            el.textContent = el.textContent.replace(/[$€£L.E]?/, currencySymbol);
+        });
+    }
+}
+
+function getCurrencySymbol(code) {
+    switch (code) {
+        case "USD": return "L.E";
+        case "EUR": return "€";
+        case "GBP": return "£";
+        case "EGP": return "L.E";
+        default: return code || "L.E";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", loadSiteSettings);
+   tsParticles.load("tsparticles", {
+      background: { color: "#000" },
+      fpsLimit: 60,
+      particles: {
+        number: { value: 100, density: { enable: true, area: 800 } },
+        color: { value: ["#00f7ff", "#ff0040"] },
+        shape: { type: "circle" },
+        opacity: { value: 0.8 },
+        size: { value: { min: 1, max: 4 } },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          outModes: { default: "bounce" }
+        },
+        links: {
+          enable: true,
+          distance: 100,
+          color: "#ffffff",
+          opacity: 0.2,
+          width: 1
+        }
+      },
+      detectRetina: true
+    });
+</script>
+</body>
+</html>
